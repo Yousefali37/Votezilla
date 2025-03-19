@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "title": "Budget Approval",
+        "desc": "Approve the annual budget allocation for departments.",
+        "duration": "3 days",
+        "status": "active",
+        "category": "Financial"
+    },
+    {
+        "id": 2,
+        "title": "Project Funding",
+        "desc": "Decide on the funding allocation for upcoming projects.",
+        "duration": "5 days",
+        "status": "inactive",
+        "category": "Financial"
+    },
+    {
+        "id": 3,
+        "title": "Policy Amendment",
+        "desc": "Review and approve proposed changes to company policies.",
+        "duration": "1 week",
+        "status": "active",
+        "category": "Legal"
+    },
+    {
+        "id": 4,
+        "title": "New Hiring Plan",
+        "desc": "Discuss and approve the hiring plan for the next quarter.",
+        "duration": "4 days",
+        "status": "inactive",
+        "category": "HR"
+    },
+    {
+        "id": 5,
+        "title": "Tech Upgrade",
+        "desc": "Evaluate the proposal for upgrading company infrastructure.",
+        "duration": "6 days",
+        "status": "active",
+        "category": "Strategy"
+    },
+    {
+        "id": 6,
+        "title": "Partnership Agreement",
+        "desc": "Approve a strategic partnership with a major stakeholder.",
+        "duration": "2 days",
+        "status": "inactive",
+        "category": "Legal"
+    },
+    {
+        "id": 7,
+        "title": "Employee Benefits",
+        "desc": "Vote on additional employee benefits and perks.",
+        "duration": "3 days",
+        "status": "active",
+        "category": "HR"
+    },
+    {
+        "id": 8,
+        "title": "Marketing Strategy",
+        "desc": "Finalize the upcoming year's marketing approach.",
+        "duration": "5 days",
+        "status": "inactive",
+        "category": "Strategy"
+    },
+    {
+        "id": 9,
+        "title": "Office Relocation",
+        "desc": "Decide whether to move to a new office space.",
+        "duration": "1 week",
+        "status": "active",
+        "category": "Operations"
+    },
+    {
+        "id": 10,
+        "title": "Security Policies",
+        "desc": "Review and update cybersecurity policies.",
+        "duration": "4 days",
+        "status": "inactive",
+        "category": "Legal"
+    }
+]
