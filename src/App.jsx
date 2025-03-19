@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import SignIn from './Auth/SignIn/SignIn';
-import Verifyfingerprint from './Components/Verify-Fingerprint/verifyfingerprint';
 import Home from './Pages/Home/Home';
 import Dashboard from './Dashboard/Dashboard';
 import Header from './Components/Header/Header';
@@ -12,6 +11,7 @@ import Positions from './Pages/Positions/Positions';
 import { Toaster } from 'react-hot-toast';
 import FAQs from './Pages/FAQs/FAQs';
 import AboutUs from './Pages/About-us/AboutUs';
+import Verifyfingerprint from './Components/Verify-Fingerprint/Verifyfingerprint';
 
 function App() {
   return (

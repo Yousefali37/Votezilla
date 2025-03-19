@@ -21,6 +21,48 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.auth-step-container {
+    position: relative;
+}
+
+.auth-step-1, .auth-step-2 {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0d9488;
+    border-radius: 1000px;
+    position: relative;
+    z-index: 1;
+}
+
+.active-step {
+    background-color: #0d9488;
+    color: #f3f3f3;
+}
+
+.inactive-step {
+    background-color: white;
+    color: #0d9488;
+}
+
+.auth-step-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 2px;
+    background-color: #0d9488;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.auth-step-1 p, .auth-step-2 p {
+    margin: 0px;
+}
+
 .form-group {
     position: relative;
 }

@@ -2,11 +2,11 @@ import './PositionSession.css'
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import PositionCard from './../../../Components/Session-cards/Position-Card/PositionCard';
 import HeroSection from './../../../Components/Hero Section/HeroSection';
 import data from './Positions Data/PositionData.json';
 import { useState } from 'react';
-import FilterBar from '../../../Components/Search/FilterBar';
+import PositionCard from './../../../Components/Cards/Session-cards/Position-Card/PositionCard';
+import FilterBar from './../../../Components/Search/FilterBar/FilterBar';
 
 function PositionSession() {
 

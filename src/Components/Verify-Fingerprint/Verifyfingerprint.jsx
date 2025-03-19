@@ -4,50 +4,66 @@ import { useState } from "react";
 import Loading from "../Loading/Loading";
 import { Link } from 'react-router-dom';
 
+// Material UI Icons
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
+
 function Verifyfingerprint() {
-    // State variables and functions for fingerprint verification and navigation between states
     const [currentState, setCurrentState] = useState(1);
-    const [isLoading, setIsLoading] = useState(false);
+
+    const handleStateChange = (e, newState) => {
+        e.preventDefault();
+
+        setTimeout(() => {
+            setCurrentState(newState);
+
+            if (newState === 2) {
+                setTimeout(() => {
+                    setCurrentState(3);
+                }, 3000);
+            }
+        }, 1000);
+    }
 
     return (
-        <div className="verify vh-100 d-flex justify-content-center align-items-center">
+        <div className="verify d-flex justify-content-center align-items-center">
             <div className="container">
-                {/* Conditional rendering based on the current state */}
-                {isLoading ? (
-                    <Loading />
-                ) : (
-                    <div className="d-flex flex-column justify-content-center align-items-center">
-                        {currentState === 1 && (
-                            <div className="fade-in">
-                                <h4 className="mb-4 text-center">Please Verify Your Fingerprint</h4>
-                                <div className="verify-container mx-5">
-                                    <img src="/State-1.svg" alt="Fingerprint Initial" className="fingerprint pulse" />
-                                </div>
-                            </div>
-                        )}
-                        {currentState === 2 && (
-                            <div className="fade-in">
-                                <h4 className="mb-5 text-center">Verifying Your Fingerprint...</h4>
-                                <div className="verify-container mx-5">
-                                    <img src="/State-2.svg" alt="Fingerprint Scanning" className="fingerprint scanning" />
-                                    <div className="scanner-line"></div>
-                                </div>
-                            </div>
-                        )}
-                        {currentState === 3 && (
-                            <div className="fade-in">
-                                <h5 className="mb-4 text-center text-success">You&apos;re Good to Go</h5>
-                                <div className="verify-container mx-5">
-                                    <img src="/State-3.png" alt="Fingerprint Verified" className="fingerprint success" />
-                                </div>
-                            </div>
-                        )}
+                <div className="d-flex flex-column justify-content-center align-items-center">
 
-                        <button className="verify-btn" onClick={() => setCurrentState(2)}>Start Scan</button>
-                        <button className="verify-btn" onClick={() => setCurrentState(3)}>Finish Scan</button>
-                        <Link to={'/home'} className='mt-4'>Go To Home</Link>
-                    </div>
-                )}
+                    {/* Content based on current state */}
+                    {currentState === 1 && (
+                        <div className="fade-in text-center d-flex justify-content-center align-items-center flex-column">
+                            <h4 className="mb-4">Please Verify Your Fingerprint</h4>
+                            <div className="verify-container">
+                                <img src="/public/fingerprint-svgrepo-com.png" alt="" className='fingerprint' />
+                            </div>
+                            <button className="verify-btn mt-4" onClick={(e) => handleStateChange(e, 2)}>
+                                Start Scan
+                            </button>
+                        </div>
+                    )}
+
+                    {currentState === 2 && (
+                        <div className="fade-in text-center d-flex justify-content-center align-items-center flex-column">
+                            <h4 className="mb-5">Verifying Your Fingerprint...</h4>
+                            <div className="verify-container">
+                                <img src="/State-2.svg" alt="Fingerprint Scanning" className="fingerprint scanning" />
+                                <div className="scanner-line"></div>
+                            </div>
+                        </div>
+                    )}
+
+                    {currentState === 3 && (
+                        <div className="fade-in text-center d-flex justify-content-center align-items-center flex-column">
+                            <h5 className="mb-4 text-success">You&apos;re Good to Go</h5>
+                            <div className="verify-container">
+                                <img src="/State-3.png" alt="Fingerprint Verified" className="fingerprint success" />
+                            </div>
+                            <Link to="/home" className="verify-btn mt-4">
+                                Continue to Home
+                            </Link>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

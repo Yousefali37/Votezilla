@@ -1,11 +1,16 @@
 import './AboutUs.css';
-import OurMission from '../../Components/About-us Cards/Our Mission/OurMission';
-import OurValues from '../../Components/About-us Cards/Our Values/OurValues';
-import KeyFeatures from '../../Components/About-us Cards/Key Features/KeyFeatures';
+import { useNavigate } from 'react-router-dom';
+
+// Components
+import MemberCard from './../../Components/Cards/About-us Cards/Member Card/MemberCard';
+import OurMission from './../../Components/Cards/About-us Cards/Our Mission/OurMission';
+import OurValues from './../../Components/Cards/About-us Cards/Our Values/OurValues';
+import KeyFeatures from './../../Components/Cards/About-us Cards/Key Features/KeyFeatures';
+
+// FontAwsome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faEnvelope, faLocationDot, faUsers } from '@fortawesome/free-solid-svg-icons';
-import MemberCard from './../../Components/About-us Cards/Member Card/MemberCard';
-import { useNavigate } from 'react-router-dom';
+
 
 function AboutUs() {
     const navigate = useNavigate();
@@ -24,8 +29,8 @@ function AboutUs() {
                 <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <div className='d-flex flex-column justify-content-center align-items-center'>
-                <h2 className='about-head text-center'>About the Platform</h2>
-                <p className='about-caption text-center'>Modern Voting Platform is a comprehensive system designed to streamline the voting process and facilitate informed decision-making in our digital democracy</p>
+                <h2 className='about-us__title text-center'>About the Platform</h2>
+                <p className='about-us__description text-center'>Modern Voting Platform is a comprehensive system designed to streamline the voting process and facilitate informed decision-making in our digital democracy</p>
             </div>
             <div className='row justify-content-between align-items-center gap-4 gap-md-0 gap-sm-4'>
                 <div className='col-12 col-md-4 col-sm-12'>
@@ -38,8 +43,8 @@ function AboutUs() {
                     <KeyFeatures />
                 </div>
             </div>
-            <div className='team-container gap-5'>
-                <FontAwesomeIcon icon={faUsers} className='team-icon' />
+            <div className='team-section gap-5'>
+                <FontAwesomeIcon icon={faUsers} className='team-section__icon' />
                 <h2 className='fw-bold'>Our Team</h2>
                 <div className='row w-100 justify-content-center align-items-center gap-4'>
                     <div className='col-md-3 col-sm-12'>
@@ -68,12 +73,12 @@ function AboutUs() {
                     </div>
                 </div>
             </div>
-            <div className='get-in-touch container d-flex flex-column align-items-center'>
+            <div className='contact-section container d-flex flex-column align-items-center'>
                 <h2>Get in Touch</h2>
-                <p className='getintouch-caption w-50'>Have questions about our platform? Our team is here to help you 24/7. Reach out to us for any inquiries about implementation, security, or general information.</p>
-                <p className='getintouch-email'><span><FontAwesomeIcon icon={faEnvelope} className='px-2' /></span>Votezilla@gmail.com</p>
-                <p className='getintouch-location'><span><FontAwesomeIcon icon={faLocationDot} className='px-1' />Location: </span>Paddys Pub, Philadelphia, PA</p>
-                <p className='getintouch-location'><span>Available: </span>Monday - Friday, 9AM - 6PM PST</p>
+                <p className='contact-section__description w-50'>Have questions about our platform? Our team is here to help you 24/7. Reach out to us for any inquiries about implementation, security, or general information.</p>
+                <p className='contact-section__email-link'><span><FontAwesomeIcon icon={faEnvelope} className='px-2' /></span>Votezilla@gmail.com</p>
+                <p className='contact-section__info-item'><span><FontAwesomeIcon icon={faLocationDot} className='px-1' />Location: </span>Paddys Pub, Philadelphia, PA</p>
+                <p className='contact-section__info-item'><span>Available: </span>Monday - Friday, 9AM - 6PM PST</p>
             </div>
         </div>
     )

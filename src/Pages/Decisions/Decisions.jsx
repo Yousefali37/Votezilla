@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import DecisionVotingCard from "../../Components/Voting-cards/Decision-voting-card/DecisionVotingCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import DecisionVotingCard from './../../Components/Cards/Voting-cards/Decision-voting-card/DecisionVotingCard';
 
 function Decisions() {
 

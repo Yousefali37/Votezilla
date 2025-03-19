@@ -1,7 +1,7 @@
 import "./Dashboard.css";
-import DashboardCards from './../Components/Dashboard-cards/DashboardCards';
 import { faClipboardCheck, faGear, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
+import DashboardCards from './../Components/Cards/Dashboard-cards/DashboardCards';
 
 function Dashboard() {
 

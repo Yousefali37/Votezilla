@@ -1,10 +1,10 @@
 import { useState } from "react";
-import PositionVotingCard from "../../Components/Voting-cards/Position-voting-card/PositionVotingCard";
 import PositionData from "./PositionsData";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import PositionVotingCard from './../../Components/Cards/Voting-cards/Position-voting-card/PositionVotingCard';
 
 function Positions() {
     const navigate = useNavigate();

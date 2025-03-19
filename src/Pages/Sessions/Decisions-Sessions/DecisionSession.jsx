@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import DecisionCard from './../../../Components/Session-cards/Decision-card/DecisionCard';
 import HeroSection from '../../../Components/Hero Section/HeroSection';
 import data from './Decisions Data/DecisionsData.json';
-import FilterBar from '../../../Components/Search/FilterBar';
+import DecisionCard from './../../../Components/Cards/Session-cards/Decision-card/DecisionCard';
+import FilterBar from './../../../Components/Search/FilterBar/FilterBar';
 
 function DecisionSession() {
     const navigate = useNavigate();
