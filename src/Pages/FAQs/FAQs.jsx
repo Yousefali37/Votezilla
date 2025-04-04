@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Css/FAQs.css";
 import faqsData from "./FaqData";
+import GoBackBtn from "../../Components/Go Back btn/GoBackBtn";
 
 export default function FAQs() {
-    const navigate = useNavigate();
     const [messages, setMessages] = useState([
         { type: "bot", text: "Hello! How Can I Help You?" },
     ]);
@@ -25,13 +22,7 @@ export default function FAQs() {
             {/* FAQ Section */}
             <div className="faq-section p-3">
                 <div className="d-flex align-items-center mb-3">
-                    <button
-                        className="go-back-btn shadow"
-                        onClick={() => navigate(-1)}
-                        aria-label="Go back"
-                    >
-                        <FontAwesomeIcon icon={faArrowLeft} />
-                    </button>
+                    <GoBackBtn />
                     <h3 className="ms-3 mx-md-5">Frequently Asked Questions</h3>
                 </div>
                 <ul className="list-unstyled mt-3">

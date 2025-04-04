@@ -2,9 +2,8 @@ import { useState } from "react";
 import PositionData from "./PositionsData";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import PositionVotingCard from './../../Components/Cards/Voting-cards/Position-voting-card/PositionVotingCard';
+import GoBackBtn from "../../Components/Go Back btn/GoBackBtn";
 
 function Positions() {
     const navigate = useNavigate();
@@ -42,19 +41,9 @@ function Positions() {
         );
     });
 
-    const handleGoBack = () => {
-        navigate(-1);
-    }
-
     return (
         <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center gap-4">
-            <button
-                className="go-back-btn shadow-lg fade-in"
-                onClick={handleGoBack}
-                aria-label="Go back to the previous page"
-            >
-                <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
+            <GoBackBtn />
             <div className="row justify-content-around align-items-center gap-md-1 gap-sm-4">
                 {data.length === 0 ? (
                     <h2 className="text-center fade-in">No positions available yet.</h2>

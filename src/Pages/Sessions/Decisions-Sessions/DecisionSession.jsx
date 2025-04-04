@@ -1,14 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import HeroSection from '../../../Components/Hero Section/HeroSection';
 import data from './Decisions Data/DecisionsData.json';
 import DecisionCard from './../../../Components/Cards/Session-cards/Decision-card/DecisionCard';
 import FilterBar from './../../../Components/Search/FilterBar/FilterBar';
+import GoBackBtn from '../../../Components/Go Back btn/GoBackBtn';
 
 function DecisionSession() {
-    const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const [filters, setFilteredData] = useState({
         status: "",
@@ -34,22 +31,12 @@ function DecisionSession() {
         setSearchQuery(query);
     };
 
-    const handleGoBack = () => {
-        navigate(-1);
-    };
-
     return (
         <>
             <HeroSection page={"decision"} title={"Decision Sessions"} text={"Choose the Session you want to vote on"} />
             <FilterBar onFilterChange={handleFilterChange} onSearchChange={handleSearch} page={"decision"} />
             <div className="d-flex flex-column justify-content-center align-items-center container-sm gap-5 mb-4 mt-lg-0 pt-lg-0">
-                <button
-                    className="go-back-btn shadow-lg fade-in"
-                    onClick={handleGoBack}
-                    aria-label="Go back to the previous page"
-                >
-                    <FontAwesomeIcon icon={faArrowLeft} />
-                </button>
+                <GoBackBtn />
                 <div className="container row justify-content-center align-items-center">
                     {
                         filteredData.length > 0 ? (

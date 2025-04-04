@@ -1,5 +1,4 @@
 import './AboutUs.css';
-import { useNavigate } from 'react-router-dom';
 
 // Components
 import MemberCard from './../../Components/Cards/About-us Cards/Member Card/MemberCard';
@@ -9,25 +8,15 @@ import KeyFeatures from './../../Components/Cards/About-us Cards/Key Features/Ke
 
 // FontAwsome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faEnvelope, faLocationDot, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLocationDot, faUsers } from '@fortawesome/free-solid-svg-icons';
+import GoBackBtn from '../../Components/Go Back btn/GoBackBtn';
 
 
 function AboutUs() {
-    const navigate = useNavigate();
-
-    const handleGoBack = () => {
-        navigate(-1);
-    };
 
     return (
         <div className='container min-vh-100 mt-5 pt-3 d-flex flex-column justify-content-start align-items-center gap-5 mb-4 fade-in'>
-            <button
-                className="go-back-btn shadow-lg fade-in"
-                onClick={handleGoBack}
-                aria-label="Go back to the previous page"
-            >
-                <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
+            <GoBackBtn />
             <div className='d-flex flex-column justify-content-center align-items-center'>
                 <h2 className='about-us__title text-center'>About the Platform</h2>
                 <p className='about-us__description text-center'>Modern Voting Platform is a comprehensive system designed to streamline the voting process and facilitate informed decision-making in our digital democracy</p>
