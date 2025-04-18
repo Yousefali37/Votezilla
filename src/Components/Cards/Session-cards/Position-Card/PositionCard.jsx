@@ -1,6 +1,6 @@
 import './PositionCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from "prop-types";
 
@@ -13,13 +13,6 @@ function PositionCard({ id, position, desc, duration }) {
 
             {/* navigate to decision session when card is clicked */}
             <div className="card text-center">
-
-                {/* Details */}
-                <div className='session-details1' onClick={() => {
-                    navigate(`/position-session/${id}`);
-                }}>
-                    <FontAwesomeIcon icon={faExclamation} />
-                </div>
 
                 <div className="card-body">
 
