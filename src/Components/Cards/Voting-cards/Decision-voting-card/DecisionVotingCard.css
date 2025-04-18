@@ -1,0 +1,183 @@
+/* Card Styling */
+.decision-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.decision-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve text readability */
+p {
+    line-height: 1.6;
+}
+
+/* Section Titles with Background */
+.section-title {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(99, 230, 190, 0.1);
+    /* Light green background */
+    border-radius: 5px;
+}
+
+/* Icon Styling */
+.icon-color {
+    color: #63E6BE;
+}
+
+/* Bootstrap List Customization */
+ul li::marker {
+    color: #63E6BE;
+}
+
+/* CTA Button */
+/* Common Button Styles */
+.vote-btn {
+    max-width: 180px;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+/* For Vote */
+.for-btn {
+    background: transparent;
+    color: #14b8a6;
+    border: 2px solid #0d9488;
+}
+
+.for-btn:hover {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: #ffffff;
+    transform: scale(1.07);
+    box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
+}
+
+.for-btn:active {
+    transform: scale(0.93);
+    box-shadow: 0px 2px 5px rgba(20, 184, 166, 0.5);
+}
+
+/* Against Vote */
+.against-btn {
+    background: transparent;
+    color: tomato;
+    border: 2px solid tomato;
+}
+
+.against-btn:hover {
+    background: linear-gradient(135deg, tomato, #c62828);
+    color: #ffffff;
+    transform: scale(1.07);
+    box-shadow: 0px 5px 15px rgba(206, 40, 40, 0.5);
+}
+
+.against-btn:active {
+    transform: scale(0.93);
+    box-shadow: 0px 2px 5px rgba(206, 40, 40, 0.5);
+}
+
+/* Abstain */
+.other-btn {
+    background: transparent;
+    color: #333;
+    border: 2px solid #333;
+}
+
+.other-btn:hover {
+    background: #f2f2f2;
+    color: #333;
+    transform: scale(1.07);
+    box-shadow: 0px 5px 15px rgba(242, 242, 242, 0.5);
+}
+
+.other-btn:active {
+    transform: scale(0.93);
+    box-shadow: 0px 2px 5px rgba(242, 242, 242, 0.5);
+}
+
+.abstain-form-container {
+    position: relative;
+}
+
+.abstain-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-btn {
+    max-width: 200px;
+    align-self: center;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
+}
+
+.btn-close {
+    position: absolute;
+    color: #c62828;
+}
+
+.btn-close:hover {
+    color: #ff0000;
+}
+
+.btn-close:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(206, 40, 40, 0.5);
+    color: #ff0000;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+
+/* Responsive: Stack buttons on small screens */
+@media (max-width: 768px) {
+    .vote-btn {
+        max-width: 100%;
+        padding: 14px;
+        font-size: 14px;
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .decision-card {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .section-title {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,211 @@
+/* Main Page Container */
+.SignIn {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background: linear-gradient(to right, #f6fdfa, #f8fdfb)
+}
+
+/* Form Card Styles */
+.signForm {
+    max-width: 448px;
+    min-height: 370px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    background: linear-gradient(to right, #f6fdfa, #f8fdfb);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Progress Steps - Container */
+.auth-step-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2.5rem;
+    padding: 0 2rem;
+}
+
+/* Progress line animation */
+.auth-step-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #0d9488 0%, #0d9488 50%, #e5e7eb 50%, #e5e7eb 100%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transform: translateY(-50%);
+    z-index: 0;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+
+/* Completed progress state */
+.auth-step-container.step-completed::after {
+    background-position: left bottom;
+}
+
+/* Step circles (1 and 2) */
+.auth-step-1,
+.auth-step-2 {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #e5e7eb;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    transition: all 0.9s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Step numbers */
+.auth-step-1 p,
+.auth-step-2 p {
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+/* Step labels below circles */
+.auth-step-label {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #9ca3af;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+/* Active step styling */
+.active-step {
+    background-color: #0d9488;
+    color: white;
+    border-color: #0d9488;
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(13, 148, 136, 0.3);
+    transition: all 0.9s ease-in-out;
+}
+
+.active-error {
+    background-color: rgb(255, 102, 102);
+    border-color: rgb(255, 102, 102);
+    transition: all 0.3s ease-in-out;
+}
+
+.active-step+.auth-step-label {
+    color: #0d9488;
+    font-weight: 700;
+}
+
+/* Inactive step styling */
+.inactive-step {
+    background-color: white;
+    color: #9ca3af;
+    border-color: #e5e7eb;
+}
+
+/* Form input fields */
+.auth-form-group {
+    position: relative;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 15px 0;
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius) var(--radius) 3px 3px;
+    background-color: #f3f3f3;
+    border-bottom: 5px solid transparent;
+    font-family: "Lato", sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px inset;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Input field labels */
+.auth-form-group label {
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    opacity: 0;
+    transition: color 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+/* Input field focus states */
+.auth-input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.auth-input:focus:valid {
+    border-bottom: 5px solid rgb(120, 196, 120);
+}
+
+.auth-input:focus:invalid {
+    border-bottom: 5px solid rgb(255, 102, 102);
+}
+
+/* Label animations */
+.auth-input:focus+label,
+.auth-input:placeholder-shown+label {
+    opacity: 0;
+    visibility: hidden;
+    top: 20px;
+    left: 20px;
+}
+
+.auth-input:not(:placeholder-shown)+label {
+    opacity: 1;
+    visibility: visible;
+    top: -13px;
+    left: 18px;
+}
+
+/* Submit button */
+.auth-button {
+    border-radius: var(--radius);
+    border: 1px solid #14b8a6;
+    background: #14b8a6;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    transition: transform 0.4s ease-in;
+}
+
+.auth-button:hover {
+    background-color: #0d9488;
+}
+
+.auth-button:active {
+    transform: scale(0.95);
+}

@@ -1,0 +1,49 @@
+.product-tabs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    background: rgb(232, 239, 247);
+    border-radius: 0.875rem;
+}
+
+.tab-button {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    min-height: 2.25rem;
+    border-radius: 0.875rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.active-tab {
+    background: rgb(255, 255, 255);
+}
+
+.product-tabs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-panel {
+    padding: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    background-color: #fff;
+}
+
+.tab-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a202c;
+}

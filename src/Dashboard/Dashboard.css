@@ -1,0 +1,83 @@
+.dashboard-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dash-head {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.dashboard-card {
+    max-width: 630px;
+    min-height: 150px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.dashboard-card:hover {
+    transform: scale(1.01);
+    border: 1px solid #0d9488;
+}
+
+.dashboard-card:active {
+    transform: scale(0.99);
+    border: 1px solid #0d9488;
+}
+
+.icon-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-title .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f1f1f1;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    color: #14b8a6;
+}
+
+.icon-title .edit-icon {
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #0d9488;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(0.8); }
+}
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.progress-bar-custom {
+    height: 100%;
+    background: linear-gradient(90deg, #14b8a6, #0d9488);
+    transition: width 0.5s ease-in-out;
+}

@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --border: hsl(214.3, 31.8%, 91.4%);
+    --radius: 0.75rem;
+}
+
+/* Global Styles */
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #fcfffe, #e1f3f1);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Utility Classes */
+
+.form-container {
+    padding: 2rem;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.datepicker {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    font-size: 1rem;
+    color: #0f172a;
+    background-color: #f9fafb;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group .datepicker:focus,
+.form-group textarea:focus {
+    border-color: #14b8a6;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.form-submit-btn {
+    align-self: flex-end;
+    border-radius: 0.75rem;
+    border: none;
+    background: #14b8a6;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form-submit-btn:hover {
+    background-color: #0d9488;
+}
+
+.form-submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Buttons Styles */
+.verify-btn {
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin-top: 15px;
+}
+
+.verify-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.verify-btn:active {
+    transform: scale(0.95);
+}
+
+.go-back-btn {
+    position: fixed;
+    width: 3rem;
+    height: 3rem;
+    left: 1rem;
+    top: 0.6rem;
+    background-color: #14b8a6;
+    color: #fcfffe;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.go-back-btn:hover {
+    background-color: #0d9488;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active state */
+.go-back-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments for mobile (max-width: 576px) */
+@media (max-width: 576px) {
+
+    .go-back-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 18px;
+        left: 0.5rem;
+        top: 0.5rem;
+    }
+}
+
+/* Responsive adjustments for tablets (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .go-back-btn {
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 19px;
+    }
+}
+
+/* Responsive adjustments for large tablets (max-width: 976px) */
+@media (max-width: 976px) {
+    .go-back-btn {
+        width: 3rem;
+        height: 3rem;
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,114 @@
+.position-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.card {
+    max-width: 400px;
+    min-height: 160px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+}
+
+.card:hover {
+    /* border: 1px solid #14b8a6; */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Body Styling */
+.card-body {
+    text-align: center;
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.card-title span {
+    font-weight: normal;
+    color: #555;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Session Details */
+.session-details1 {
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    border: 1px solid #0d9488;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    color: #0d9488;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(20, 184, 165, 0.2);
+}
+
+.session-details1:hover {
+    background: #0d9488;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.14);
+}
+
+.session-details1:active {
+    transform: scale(1.05);
+}
+
+.session-details {
+    background: transparent;
+    color: #0d9488;
+    border: 1px solid #0d9488;
+}
+
+.session-details:hover {
+    background: #0d9488;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Footer Styling */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #333;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 14px 14px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Icon Styling */
+.clock-icon {
+    margin-right: 8px;
+    color: #0d9488;
+}
+
+/* Hover Effect for Footer */
+.card:hover .card-footer {
+    background: rgba(255, 255, 255, 0.3);
+}

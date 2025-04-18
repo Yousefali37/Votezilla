@@ -1,0 +1,49 @@
+.home-head {
+    color: rgb(10, 179, 164);
+    font-size: 3.0rem;
+    font-weight: bolder;
+}
+
+.glass-card {
+    max-width: 458px;
+    min-height: 190px;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.glass-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.glass-card:active {
+    transform: scale(0.95);
+}
+
+.glass-card .icon {
+    font-size: 32px;
+    color: #0d9488;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.1);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+}
