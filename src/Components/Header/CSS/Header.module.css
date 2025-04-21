@@ -15,27 +15,29 @@
     justify-content: start;
     font-weight: bold;
     margin-left: 0.5rem;
+    color: #162d3b;
     cursor: pointer;
 }
 
 .nav-link {
-    color: #222;
+    color: #162d3b;
     font-weight: 500;
     padding: 8px 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-link:hover {
-    background-color: #14b8a6;
+    background-color: #162d3b;
     color: white;
     border-radius: 5px;
 }
 
 .mirrored-icon {
-    transform: rotateY(180);
+    transform: rotateY(180deg);
     display: inline-block;
     transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
     font-size: 1.5rem;
-    color: #333;
+    color: #162d3b;
     background-color: transparent;
     padding: 10px;
     border-radius: 50%;
@@ -48,12 +50,12 @@
     align-items: center;
     width: 50px;
     height: 50px;
-    border: 1px solid #ddd;
+    border: 1px solid #dcded7;
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
 }
 
 .mirrored-icon-container:hover {
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 10px rgba(22, 45, 59, 0.25);
 }

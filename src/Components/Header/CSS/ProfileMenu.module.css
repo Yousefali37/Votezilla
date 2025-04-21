@@ -6,31 +6,39 @@
     position: absolute;
     top: 40px;
     right: 0;
-    background: #fff9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dcded7;
+    border-radius: 10px;
     padding: 10px;
     width: 200px;
     z-index: 1000;
+    box-shadow: 0 6px 12px rgba(22, 45, 59, 0.1);
+    backdrop-filter: blur(6px);
 }
 
 .profile-dropdown a {
-    color: #003366;
+    color: #162d3b;
     text-decoration: none;
-    padding: 8px 12px;
+    padding: 10px 14px;
     display: block;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .profile-dropdown a:hover {
-    background-color: #14b8a6;
-    color: #fff;
+    background-color: #162d3b;
+    color: white;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
 }
 
 .profile-img {
     transform: scale(1.5);
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 0 rgba(22, 45, 59, 0);
+}
+
+.profile-img:hover {
+    box-shadow: 0 4px 12px rgba(22, 45, 59, 0.3);
 }

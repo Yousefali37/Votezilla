@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import './Verifyfingerprint.css';
 import { useState } from "react";
-import Loading from "../Loading/Loading";
 import { Link } from 'react-router-dom';
 
 // Material UI Icons

@@ -5,7 +5,7 @@
     align-items: flex-start;
     max-width: 400px;
     max-height: 800px;
-    background: #ffffff;
+    background: #eeefe7;
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -20,15 +20,13 @@
 }
 
 .position-voting-card.selected {
-    border: 2px solid green;
+    border: 2px solid #162d3b;
 }
 
 .position-voting-card.not-selected {
     border: 2px solid #c62828;
     opacity: 0.6;
 }
-
-
 
 /* Profile Picture */
 .profile-pic {
@@ -45,7 +43,7 @@
 
 /* Icons */
 .icon-color {
-    color: #63E6BE;
+    color: #162d3b;
     transition: color 0.3s ease-in-out;
 }
 
@@ -60,17 +58,17 @@
     align-items: center;
     gap: 8px;
     padding: 8px 12px;
-    background: rgba(99, 230, 190, 0.1);
+    background: rgba(22, 45, 59, 0.1); /* Dark blue background */
     border-radius: 5px;
     transition: background 0.3s ease-in-out;
 }
 
 .section-title:hover {
-    background: rgba(99, 230, 190, 0.2);
+    background: rgba(22, 45, 59, 0.2); /* Dark blue background on hover */
 }
 
 .position-title {
-    color: #63E6BE;
+    color: #162d3b;
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
@@ -89,7 +87,7 @@
 }
 
 .email {
-    color: #14b8a6;
+    color: #162d3b;
     text-decoration: none;
 }
 
@@ -103,7 +101,7 @@
 }
 
 .experience h4, .campaign-goals h4, .key-achievements h4 {
-    color: #333;
+    color: #162d3b;
     font-size: 18px;
     margin-bottom: 10px;
 }
@@ -151,12 +149,12 @@
 /* Vote For */
 .for-btn {
     background: transparent;
-    color: #14b8a6;
-    border: 2px solid #0d9488;
+    color: #162d3b;
+    border: 2px solid #162d3b;
 }
 
 .for-btn:hover {
-    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    background: #14b8a6;
     color: #ffffff;
     transform: scale(1.07);
     box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
@@ -228,27 +226,6 @@
     transform: scale(1.05);
     box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
 }
-
-/* Close Button */
-/* .btn-close {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    color: #c62828;
-    background: none;
-    border: none;
-    font-size: 18px;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn-close:hover {
-    color: #ff0000;
-    transform: rotate(90deg);
-}
-
-.btn-close:active {
-    transform: scale(0.95);
-} */
 
 /* Votes Count */
 .votes-count {

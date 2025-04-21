@@ -2,7 +2,7 @@
 .hero-section {
     position: relative;
     min-height: fit-content;
-    background: linear-gradient(to top, #fcfffe, #0d9488);
+    background: linear-gradient(135deg, #eeefe7, #162d3b);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,7 @@
 
 /* Text Styles */
 .hero-text h1 {
-    color: #fcfffe;
+    color: #eeefe7;
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -22,12 +22,12 @@
 }
 
 .hero-text h1 span {
-    color: #4a2c12;
+    color: #162d3b;
 }
 
 .hero-text p {
     text-align: center;
-    color: #4a4a40;
+    color: #162d3b;
     font-size: 1.2rem;
     font-weight: 400;
     margin-bottom: 1.5rem;
@@ -53,25 +53,25 @@
 }
 
 .btn-primary {
-    background-color: #8b4513;
-    color: white;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #162d3b;
+    color: #eeefe7;
+    box-shadow: 2px 2px 6px rgba(22, 45, 59, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #6e3210;
+    background-color: #0f1f2a;
     transform: scale(1.05);
 }
 
 .btn-secondary {
-    background-color: #ffffff;
-    color: #8b4513;
-    border: 2px solid #8b4513;
+    background-color: #eeefe7;
+    color: #162d3b;
+    border: 2px solid #162d3b;
 }
 
 .btn-secondary:hover {
-    background-color: #8b4513;
-    color: #fff;
+    background-color: #162d3b;
+    color: #eeefe7;
     transform: scale(1.05);
 }
 
@@ -108,10 +108,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #eeefe7;
     padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 6px 6px 14px rgba(22, 45, 59, 0.08);
     transition: all 0.3s ease-in-out;
 }
 
@@ -125,8 +125,9 @@
     filter: brightness(1.1);
 }
 
+/* Start Quiz Button */
 .start-quiz {
-    padding: 1rem;
+    padding: 1rem 1.6rem;
     border-radius: 8px;
     font-size: 1.2rem;
     font-weight: 500;
@@ -134,13 +135,13 @@
     transition: all 0.3s ease-in-out;
     border: none;
     outline: none;
-    background-color: #8b4513;
-    color: white;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #162d3b;
+    color: #eeefe7;
+    box-shadow: 2px 2px 6px rgba(22, 45, 59, 0.3);
 }
 
 .start-quiz:hover {
-    background-color: #6e3210;
+    background-color: #0f1f2a;
     transform: scale(1.05);
 }
 

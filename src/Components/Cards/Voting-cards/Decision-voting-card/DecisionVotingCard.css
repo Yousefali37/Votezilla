@@ -1,6 +1,6 @@
 /* Card Styling */
 .decision-card {
-    background: #ffffff;
+    background: #eeefe7;
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,19 +26,18 @@ p {
     align-items: center;
     gap: 8px;
     padding: 8px 12px;
-    background: rgba(99, 230, 190, 0.1);
-    /* Light green background */
+    background: rgba(22, 45, 59, 0.1); /* Dark blue background */
     border-radius: 5px;
 }
 
 /* Icon Styling */
 .icon-color {
-    color: #63E6BE;
+    color: #162d3b;
 }
 
 /* Bootstrap List Customization */
 ul li::marker {
-    color: #63E6BE;
+    color: #162d3b;
 }
 
 /* CTA Button */
@@ -58,12 +57,12 @@ ul li::marker {
 /* For Vote */
 .for-btn {
     background: transparent;
-    color: #14b8a6;
-    border: 2px solid #0d9488;
+    color: #162d3b;
+    border: 2px solid #14b8a6;
 }
 
 .for-btn:hover {
-    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    background: linear-gradient(135deg, #14b8a6, #162d3b);
     color: #ffffff;
     transform: scale(1.07);
     box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
@@ -125,7 +124,7 @@ ul li::marker {
     max-width: 200px;
     align-self: center;
     margin-top: 15px;
-    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    background: linear-gradient(135deg, #14b8a6, #162d3b);
     color: white;
     border: none;
     padding: 10px;

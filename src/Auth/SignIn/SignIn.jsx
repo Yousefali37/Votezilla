@@ -1,13 +1,11 @@
 import './SignIn.css';
 import { useEffect, useState } from "react";
+import axios from 'axios';
 import Verifyfingerprint from './../../Components/Verify-Fingerprint/Verifyfingerprint';
-// import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faClose } from '@fortawesome/free-solid-svg-icons';
 
 function SignIn() {
-
-    // State to manage the current step of the authentication process
     const [step, setStep] = useState(1);
     const [ID, setID] = useState("");
     const [error, setError] = useState("");
@@ -26,36 +24,35 @@ function SignIn() {
         handleIDChange();
     }, [ID.length])
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     let isValid = false;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (error || ID.length < 10) {
+            setError("Please enter a valid ID (at least 10 characters)");
+            return;
+        }
 
-    //     if (isValid) {
-    //         try {
-    //             let res = await axios.get("");
-    //             if (res.status === 200) {
-    //                 setStep(step + 1);
-    //             }
-    //         } catch (e) {
-    //             console.log(e);
-    //             setError(e);
-    //         }
-    //     }
-    // }
+        try {
+            const response = await axios.get(``);
 
-    const handleStepChange = () => {
-        setStep(step + 1);
+            if (response.status === 200) {
+                setStep(step + 1);
+            } else {
+                setError("Invalid Member ID");
+                setStep(1);
+            }
+        } catch (err) {
+            console.error(err);
+            setError("An error occurred while verifying your ID");
+            setStep(1);
+        }
     }
 
     console.log(ID);
 
     return (
-        // Main container for the SignIn component
         <div className="SignIn fade-in">
             <div className="container row justify-content-center align-items-center p-0 m-0">
                 <form className="signForm">
-
-                    {/* authentication process to track progress */}
                     <div className="auth-step-container d-flex justify-content-between align-items-center mb-5 position-relative fade-in">
                         <div className={`auth-step-1 ${step >= 1 ? "active-step" : "inactive-step"} ${error && "active-error"} fade-in`}>
                             {
@@ -75,7 +72,6 @@ function SignIn() {
                         </div>
                     </div>
 
-                    {/* Form content based on the current step */}
                     {
                         step === 1 ? (
                             <>
@@ -108,7 +104,7 @@ function SignIn() {
                                     }
                                 </div>
                                 <hr />
-                                <button className="verify-btn mt-3" onClick={handleStepChange}>Verify ID</button>
+                                <button className="verify-btn mt-3" onClick={handleSubmit}>Verify ID</button>
                             </>
                         ) : (
                             step === 2 && (
