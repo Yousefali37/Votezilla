@@ -23,9 +23,7 @@ function DecisionVotingCard({ data }) {
                 <div className="text-center row justify-content-around mt-4 gap-3 px-sm-5">
                     <button className="vote-btn for-btn col-12 col-md-3 col-sm-5">✅ Vote For</button>
                     <button className="vote-btn against-btn col-12 col-md-3 col-sm-5">❌ Vote Against</button>
-                    <button className="vote-btn other-btn col-12 col-md-3 col-md-5" onClick={() => {
-                        setInput('other');
-                    }}>⚖️ Abstain</button>
+                    <button className="vote-btn other-btn col-12 col-md-3 col-md-5" onClick={handlInputChange}>⚖️ Abstain</button>
                 </div>
             ) : (
                 <div className="abstain-form-container">

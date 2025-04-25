@@ -41,7 +41,7 @@ function PositionCard({ id, desc, position, status, duration }) {
                 <hr />
 
                 {/* Buttons */}
-                <div className='d-flex flex-wrap justify-content-center align-items-center gap-4'>
+                <div className='d-flex flex-wrap justify-content-center align-items-center gap-sm-0 gap-lg-4'>
                     <button className='verify-btn' onClick={() => {
                         navigate(`/position-session/${id}`);
                     }}>

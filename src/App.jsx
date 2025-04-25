@@ -68,7 +68,6 @@ function App() {
           <Route path="/decision-session/:id" element={<Decisions />} />
           <Route path="/position-session/:id" element={<Positions />} />
 
-
           {
             user && user.role === "manager" ? (
               <>

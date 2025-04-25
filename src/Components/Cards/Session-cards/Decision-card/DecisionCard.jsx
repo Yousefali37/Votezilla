@@ -54,7 +54,7 @@ function DecisionCard({ id, title, desc, duration, status }) {
                 <hr />
 
                 {/* Buttons */}
-                <div className='d-flex flex-wrap justify-content-center align-items-center gap-4'>
+                <div className='d-flex flex-wrap justify-content-center align-items-center gap-sm-0 gap-4'>
                     <button className='verify-btn' onClick={() => {
                         navigate(`/position-session/${id}`);
                     }}>
