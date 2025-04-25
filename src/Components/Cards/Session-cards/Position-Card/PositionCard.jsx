@@ -15,7 +15,6 @@ function PositionCard({ id, desc, position, status, duration }) {
             <div className="card text-center">
                 <div className="card-body">
 
-
                     {/* Status */}
                     {
                         status && <p className={`card-status status-badge ${status === "active" ? "active" : status === "closed" ? "completed" : "upcoming" }`}>{status}</p>
@@ -53,7 +52,6 @@ function PositionCard({ id, desc, position, status, duration }) {
                         Session Details
                     </button>
                 </div>
-
             </div>
         </div>
     );

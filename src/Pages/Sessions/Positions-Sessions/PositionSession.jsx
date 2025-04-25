@@ -80,41 +80,37 @@ function PositionSession() {
                 onSearchChange={handleSearch}
             />
 
-            <div className="container-fluid py-4">
-                <div className="row justify-content-center">
-                    <div className="col-auto">
-                        <div className='row justify-content-center'>
-                            {filteredData.length > 0 ? (
-                                filteredData.map((position) => (
-                                    <div className="col-auto" key={position.election_position_id}>
-                                        <PositionCard
-                                            id={position.election_id}
-                                            position={position.position}
-                                            status={position.election?.status}
-                                            desc={position.description}
-                                            duration={position.duration}
-                                        />
-                                    </div>
-                                ))
-                            ) : (
-                                <div className="text-center py-5">
-                                    <h3>No position sessions available</h3>
-                                    <p className="text-muted">Please check back later or adjust your filters</p>
-                                    <button
-                                        className="btn btn-outline-primary mt-2"
-                                        onClick={() => {
-                                            setFilters({ position: '', status: '' });
-                                            setSearchQuery('');
-                                        }}
-                                    >
-                                        Reset Filters
-                                    </button>
-                                </div>
-                            )}
+            <div className="d-flex flex-column justify-content-center align-items-center container-sm gap-5 mb-4 mt-lg-0 pt-lg-0">
+                <div className="container row justify-content-center align-items-center">
+                    {filteredData.length > 0 ? (
+                        filteredData.map((position) => (
+                            <div className="col-lg-5 col-sm-12" key={position.election_position_id}>
+                                <PositionCard
+                                    id={position.election_id}
+                                    position={position.position}
+                                    status={position.election?.status}
+                                    desc={position.description}
+                                    duration={position.duration}
+                                />
+                            </div>
+                        ))
+                    ) : (
+                        <div className="text-center py-5">
+                            <h3>No position sessions available</h3>
+                            <p className="text-muted">Please check back later or adjust your filters</p>
+                            <button
+                                className="btn btn-outline-primary mt-2"
+                                onClick={() => {
+                                    setFilters({ position: '', status: '' });
+                                    setSearchQuery('');
+                                }}
+                            >
+                                Reset Filters
+                            </button>
                         </div>
-                    </div>
+                    )}
                 </div>
-            </div>
+            </div >
         </>
     );
 }

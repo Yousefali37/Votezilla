@@ -73,7 +73,6 @@ function DecisionSession() {
             />
 
             <div className="d-flex flex-column justify-content-center align-items-center container-sm gap-5 mb-4 mt-lg-0 pt-lg-0">
-                <GoBackBtn className="mb-3" />
                 <div className="container row justify-content-center align-items-center">
                     {filteredData.length > 0 ? (
                         filteredData.map((item) => (
