@@ -10,8 +10,6 @@ function ProfileMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
 
-    console.log(user);
-
     const toggleMenu = () => setIsOpen((prev) => !prev);
 
     const handleLogout = () => {
