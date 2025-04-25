@@ -70,7 +70,7 @@ function App() {
 
 
           {
-            user.role === "manager" ? (
+            user && user.role === "manager" ? (
               <>
                 {/* Dashoard */}
                 <Route path="/dashboard" element={<Dashboard />} />
