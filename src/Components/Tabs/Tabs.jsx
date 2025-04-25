@@ -13,7 +13,7 @@ function Tabs({ page }) {
         if (location.pathname.includes(`edit-${page}`)) return;
 
         if (select === 1) {
-            navigate(`view-${page}`, { replace: true });
+            navigate(`view-${page}s`, { replace: true });
         } else if (select === 2) {
             navigate(`add-${page}`, { replace: true });
         }

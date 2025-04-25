@@ -1,21 +1,20 @@
-/* Card Styling */
 .position-voting-card {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 400px;
-    max-height: 800px;
+    max-width: clamp(300px, 90%, 400px);
+    max-height: clamp(600px, 200vw, 800px);
     background: #eeefe7;
-    padding: 25px;
+    padding: clamp(15px, 3vw, 25px);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(22, 45, 59, 0.1);
     margin: auto;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .position-voting-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
+    box-shadow: 0 5px 15px rgba(22, 45, 59, 0.5);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -24,66 +23,63 @@
 }
 
 .position-voting-card.not-selected {
-    border: 2px solid #c62828;
+    border: 2px solid #162d3b;
     opacity: 0.6;
 }
 
-/* Profile Picture */
 .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: clamp(80px, 20vw, 100px);
+    height: clamp(80px, 20vw, 100px);
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
-    border: 3px solid #14b8a531;
+    border: 3px solid rgba(22, 45, 59, 0.2);
 }
 
 .profile-pic:hover {
     transform: scale(1.1);
 }
 
-/* Icons */
 .icon-color {
     color: #162d3b;
     transition: color 0.3s ease-in-out;
 }
 
 .icon-color:hover {
-    color: #0d9488;
+    color: #eeefe7;
 }
 
-/* Section Titles */
 .section-title {
     font-weight: 600;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 12px;
-    background: rgba(22, 45, 59, 0.1); /* Dark blue background */
+    padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
+    background: rgba(22, 45, 59, 0.1);
     border-radius: 5px;
+    color: #162d3b;
     transition: background 0.3s ease-in-out;
 }
 
 .section-title:hover {
-    background: rgba(22, 45, 59, 0.2); /* Dark blue background on hover */
+    background: rgba(22, 45, 59, 0.2);
 }
 
 .position-title {
     color: #162d3b;
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 20px);
     font-weight: 600;
     margin-bottom: 10px;
     transition: color 0.3s ease-in-out;
 }
 
 .position-title:hover {
-    color: #0d9488;
+    color: #eeefe7;
 }
 
-/* Contact Info */
 .contact-info {
     margin-top: 10px;
-    font-size: 14px;
-    color: #555;
+    font-size: clamp(12px, 3vw, 14px);
+    color: #162d3b;
 }
 
 .email {
@@ -95,30 +91,28 @@
     text-decoration: underline;
 }
 
-/* Experience, Campaign Goals, Key Achievements */
 .experience, .campaign-goals, .key-achievements {
-    margin-top: 20px;
+    margin-top: clamp(15px, 3vw, 20px);
 }
 
 .experience h4, .campaign-goals h4, .key-achievements h4 {
     color: #162d3b;
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: clamp(16px, 4vw, 18px);
+    margin-bottom:  incapacitated
 }
 
 .experience ul, .campaign-goals ul, .key-achievements ul {
     list-style-type: disc;
-    padding-left: 20px;
-    color: #555;
+    padding-left: clamp(15px, 4vw, 20px);
+    color: #162d3b;
 }
 
-/* Voting Buttons */
 .vote-btn {
-    max-width: 180px;
+    max-width: clamp(150px, 40vw, 180px);
     width: 100%;
-    padding: 12px 20px;
+    padding: clamp(10px, 2vw, 12px) clamp(15px, 3vw, 20px);
     border-radius: 8px;
-    font-size: 16px;
+    font-size: clamp(14px, 2.5vw, 16px);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -134,7 +128,7 @@
     left: 50%;
     width: 300%;
     height: 300%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(238, 239, 231, 0.3);
     transform: translate(-50%, -50%) rotate(45deg);
     transition: all 0.5s ease-in-out;
     opacity: 0;
@@ -146,7 +140,6 @@
     height: 100%;
 }
 
-/* Vote For */
 .for-btn {
     background: transparent;
     color: #162d3b;
@@ -154,39 +147,37 @@
 }
 
 .for-btn:hover {
-    background: #14b8a6;
-    color: #ffffff;
+    background: #162d3b;
+    color: #eeefe7;
     transform: scale(1.07);
-    box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
+    box-shadow: 0 5px 15px rgba(22, 45, 59, 0.5);
 }
 
 .for-btn:active {
     transform: scale(0.93);
 }
 
-/* Abstain */
 .other-btn {
     background: transparent;
-    color: #333;
-    border: 2px solid #333;
+    color: #162d3b;
+    border: 2px solid #162d3b;
 }
 
 .other-btn:hover {
-    background: #f2f2f2;
-    color: #333;
+    background: #eeefe7;
+    color: #162d3b;
     transform: scale(1.07);
-    box-shadow: 0px 5px 15px rgba(242, 242, 242, 0.5);
+    box-shadow: 0 5px 15px rgba(238, 239, 231, 0.5);
 }
 
 .other-btn:active {
     transform: scale(0.93);
 }
 
-/* Abstain Form */
 .abstain-form-container {
     width: 100%;
     position: relative;
-    margin-top: 15px;
+    margin-top: clamp(10px, 2vw, 15px);
     animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -206,17 +197,16 @@
     flex-direction: column;
 }
 
-/* Submit Button */
 .submit-btn {
-    min-width: 200px;
+    min-width: clamp(150px, 40vw, 200px);
     align-self: center;
-    margin-top: 15px;
-    background: linear-gradient(135deg, #14b8a6, #0d9488);
-    color: white;
+    margin-top: clamp(10px, 2vw, 15px);
+    background: #162d3b;
+    color: #eeefe7;
     border: none;
-    padding: 10px;
+    padding: clamp(8px, 2vw, 10px);
     border-radius: 8px;
-    font-size: 16px;
+    font-size: clamp(14px, 2.5vw, 16px);
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -224,31 +214,64 @@
 
 .submit-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0px 5px 15px rgba(20, 184, 166, 0.5);
+    box-shadow: 0 5px 15px rgba(22, 45, 59, 0.5);
 }
 
-/* Votes Count */
 .votes-count {
-    margin-top: 20px;
+    margin-top: clamp(15px, 3vw, 20px);
     text-align: center;
-    font-size: 16px;
-    color: #555;
+    font-size: clamp(14px, 3vw, 16px);
+    color: #162d3b;
 }
 
-/* Responsive: Stack buttons on small screens */
-@media (max-width: 768px) {
+@media (max-width: 576px) {
+    .position-voting-card {
+        padding: clamp(10px, 2vw, 15px);
+        max-width: 95%;
+        max-height: none;
+    }
     .vote-btn {
         max-width: 100%;
-        padding: 14px;
-        font-size: 14px;
+        padding: clamp(8px, 2vw, 10px);
+        font-size: clamp(12px, 2vw, 14px);
     }
+    .submit-btn {
+        min-width: 150px;
+        font-size: clamp(12px, 2vw, 14px);
+    }
+    .profile-pic {
+        width: clamp(60px, 15vw, 80px);
+        height: clamp(60px, 15vw, 80px);
+    }
+    .section-title {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+    }
+}
 
-    .decision-card {
-        padding: 15px;
+@media (max-width: 768px) {
+    .position-voting-card {
+        padding: clamp(12px, 2.5vw, 15px);
         text-align: center;
+        align-items: center;
     }
-
+    .vote-btn {
+        max-width: 100%;
+        padding: clamp(10px, 2.5vw, 14px);
+        font-size: clamp(13px, 2.5vw, 14px);
+    }
     .section-title {
         justify-content: center;
+    }
+}
+
+@media (max-width: 976px) {
+    .position-voting-card {
+        max-width: clamp(280px, 85%, 380px);
+    }
+    .vote-btn {
+        max-width: clamp(160px, 45vw, 180px);
+    }
+    .submit-btn {
+        min-width: clamp(160px, 45vw, 180px);
     }
 }

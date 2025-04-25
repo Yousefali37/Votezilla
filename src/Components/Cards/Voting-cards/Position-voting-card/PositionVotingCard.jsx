@@ -1,10 +1,8 @@
 import './PositionVotingCard.css';
-import { faClock } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { PropTypes } from 'prop-types';
 
-function PositionVotingCard({ id, position, name, image, desc, email, term, experience, isSelected, onVoteFor }) {
+function PositionVotingCard({ id, name, position, isSelected, onVoteFor, bio }) {
     const [input, setInput] = useState("");
 
     const handleVoteFor = () => {
@@ -12,37 +10,14 @@ function PositionVotingCard({ id, position, name, image, desc, email, term, expe
     };
 
     return (
-        <div className={`position-voting-card ${isSelected ? 'selected' : 'not-selected'}`}>
+        <div className={`position-voting-card ${isSelected ? 'selected' : 'not-selected'} text-center`}>
             {/* Candidate Info */}
-            <div className="d-flex align-items-center gap-4">
-                <img src={image} alt="Candidate" className="rounded-circle profile-pic" />
-                <div>
+            <div className="w-100 d-flex justify-content-center align-items-center">
+                <div className='w-100 text-center'>
                     <h3 className="mb-1">{name}</h3>
                     <p className="position-title">{position}</p>
+                    <p className='m-0'>{bio}</p>
                 </div>
-            </div>
-
-            {/* Description */}
-            <p className="desc text-muted">{desc}</p>
-
-            {/* Contact Info */}
-            <p className="contact-info">
-                <span className="email">{email}</span>
-            </p>
-
-            {/* Term Duration */}
-            <p className="term section-title">
-                <FontAwesomeIcon icon={faClock} className="icon-color" /> Term: <span>{term}</span>
-            </p>
-
-            {/* Experience */}
-            <div className="experience">
-                <h4>Experience</h4>
-                <ul>
-                    {experience.map((exp, index) => (
-                        <li key={index}>{exp}</li>
-                    ))}
-                </ul>
             </div>
 
             {/* Voting Buttons or Abstain Form */}
@@ -79,12 +54,7 @@ function PositionVotingCard({ id, position, name, image, desc, email, term, expe
 PositionVotingCard.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    term: PropTypes.string.isRequired,
-    experience: PropTypes.arrayOf(PropTypes.string).isRequired,
     position: PropTypes.string.isRequired,
-    desc: PropTypes.string.isRequired,
     isSelected: PropTypes.bool.isRequired,
     onVoteFor: PropTypes.func.isRequired
 };

@@ -6,8 +6,8 @@ function ViewCandidates() {
             <TableComponent
                 endpoint="http://127.0.0.1:8000/api/candidates"
                 title="candidate"
-                headers={["ID", "Name", "Position", "Session ID", "Manager ID"]}
-                dataFields={["CANDIDATE_ID", "NAME", "POSITION", "SESSION_ID", "MANAGER_ID"]}
+                headers={["ID", "Election Id", "Name", "Bio"]}
+                dataFields={["candidate_id", "election_id", "name", "bio"]}
                 searchField="name"
             />
         </div>

@@ -118,8 +118,7 @@
 }
 
 /* Badges */
-.status-badge,
-.role-badge {
+.status-badge {
     display: inline-block;
     padding: 6px 12px;
     border-radius: 20px;
@@ -132,24 +131,14 @@
     color: #059669;
 }
 
-.status-badge.inactive {
-    background-color: #fef2f2;
-    color: #dc2626;
-}
-
-.role-badge.admin {
+.status-badge.completed {
     background-color: #e0f2fe;
     color: #0369a1;
 }
 
-.role-badge.editor {
+.status-badge.upcoming {
     background-color: #f3e8ff;
     color: #7e22ce;
-}
-
-.role-badge.user {
-    background-color: #ecfccb;
-    color: #3f6212;
 }
 
 /* Action Buttons */

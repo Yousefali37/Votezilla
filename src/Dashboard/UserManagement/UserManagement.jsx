@@ -4,7 +4,7 @@ import Tabs from '../../Components/Tabs/Tabs';
 
 function UserManagement() {
 
-  
+
 
 
   return (
@@ -15,10 +15,6 @@ function UserManagement() {
       />
 
       <Tabs page={"user"} />
-
-      <div className="user-management roles-section">
-        <UserRoles />
-      </div>
     </>
   );
 }

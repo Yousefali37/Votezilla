@@ -1,17 +1,27 @@
-import { useState } from "react";
-import PositionData from "./PositionsData";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PositionVotingCard from './../../Components/Cards/Voting-cards/Position-voting-card/PositionVotingCard';
 import GoBackBtn from "../../Components/Go Back btn/GoBackBtn";
+import axios from "axios";
 
 function Positions() {
+
+    const { id } = useParams();
+    const [data, setData] = useState([]);
+    const [selectedCard, setSelectedCard] = useState(null);
+
+    // Fetching the candidates data from the API
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8000/api/candidates`)
+            .then((res) => setData(res.data))
+    }, [id])
+
+    const filterData = data.filter(item => item.election_id != null && item.election_id == id);
 
     // Using useNavigate hook to programmatically navigate
     const navigate = useNavigate();
 
-    // State to manage the selected card
-    const [selectedCard, setSelectedCard] = useState(null);
 
     // Function to handle the selection of a candidate
     const handleVoteFor = (id) => {
@@ -24,29 +34,11 @@ function Positions() {
             toast.error('Please select a candidate before submitting.');
             return;
         }
-        navigate('/home');
-        toast.success('Your Vote has been submitted successfully');
+        navigate('/verify-fingerprint');
+        toast.dismiss('Please Verify your fingerprint...');
     }
 
-    // Mapping through the PositionData to create a card for each candidate
-    const data = PositionData.map((candidate) => {
-        return (
-            <div className="col-md-5 col-sm-12" key={candidate.id}>
-                <PositionVotingCard
-                    id={candidate.id}
-                    name={candidate.name}
-                    image={candidate.image}
-                    email={candidate.email}
-                    term={candidate.term}
-                    experience={candidate.experience}
-                    position={candidate.position}
-                    desc={candidate.desc}
-                    isSelected={selectedCard === candidate.id}
-                    onVoteFor={handleVoteFor}
-                />
-            </div>
-        );
-    });
+    console.log(selectedCard)
 
     return (
         <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center gap-4">
@@ -55,11 +47,28 @@ function Positions() {
                 {data.length === 0 ? (
                     <h2 className="text-center fade-in">No positions available yet.</h2>
                 ) : (
-                    data
+                    <>
+                        {
+                            filterData.map((data) => {
+                                return (
+                                    <div className="col-lg-5 col-sm-12 mb-5 fade-in" key={data.candidate_id}>
+                                        <PositionVotingCard
+                                            name={data.name}
+                                            id={data.candidate_id}
+                                            bio={data.bio}
+                                            position={data.election.name}
+                                            onVoteFor={handleVoteFor}
+                                            isSelected={selectedCard === data.candidate_id}
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+                        <div className="text-center fade-in">
+                            <button type="submit" className="submit-btn" onClick={handleSubmit}>Submit</button>
+                        </div>
+                    </>
                 )}
-            </div>
-            <div className="text-center fade-in">
-                <button type="submit" className="submit-btn" onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     );

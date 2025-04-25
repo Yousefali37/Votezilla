@@ -4,7 +4,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from "prop-types";
 
-function PositionCard({ id, position, desc, duration }) {
+function PositionCard({ id, desc, position, status, duration }) {
     // Navigation
     const navigate = useNavigate();
 
@@ -13,8 +13,13 @@ function PositionCard({ id, position, desc, duration }) {
 
             {/* navigate to decision session when card is clicked */}
             <div className="card text-center">
-
                 <div className="card-body">
+
+
+                    {/* Status */}
+                    {
+                        status && <p className={`card-status status-badge ${status === "active" ? "active" : status === "closed" ? "completed" : "upcoming" }`}>{status}</p>
+                    }
 
                     {/* Title */}
                     <h5 className="card-title">
@@ -38,7 +43,7 @@ function PositionCard({ id, position, desc, duration }) {
                 {/* Buttons */}
                 <div className='d-flex flex-wrap justify-content-center align-items-center gap-4'>
                     <button className='verify-btn' onClick={() => {
-                        navigate('/position-session');
+                        navigate(`/position-session/${id}`);
                     }}>
                         Vote Now
                     </button>
@@ -61,6 +66,8 @@ PositionCard.propTypes = {
     duration: PropTypes.object.isRequired,
     desc: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
 };
 
 export default PositionCard;

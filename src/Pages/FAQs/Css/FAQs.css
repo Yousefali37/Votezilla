@@ -2,65 +2,86 @@
     display: flex;
     flex-direction: row;
     height: 100vh;
-    background-color: #f4f7fc;
+    background-color: #eeefe7;
     font-family: Arial, sans-serif;
 }
 
-/* Responsive Design */
+@media (max-width: 576px) {
+    .chatbot-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+    .faq-section,
+    .chat-section {
+        width: 100%;
+        padding: clamp(10px, 2vw, 15px);
+    }
+    .messages-container {
+        max-height: 65vh;
+    }
+}
+
 @media (max-width: 768px) {
     .chatbot-container {
         flex-direction: column;
         height: auto;
     }
-
     .faq-section,
     .chat-section {
         width: 100%;
     }
 }
 
-/* FAQ Section */
+@media (max-width: 976px) {
+    .faq-section {
+        width: 40%;
+    }
+    .chat-section {
+        width: 60%;
+    }
+}
+
 .faq-section {
     width: 30%;
     background-color: #ffffff;
-    padding: 20px;
-    border-right: 2px solid #ddd;
+    padding: clamp(15px, 3vw, 20px);
+    border-right: 2px solid #162d3b;
     overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 5px rgba(22, 45, 59, 0.1);
 }
 
 .faq-section h3 {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #162d3b;
     text-align: center;
 }
 
 .faq-item {
-    padding: 12px;
-    background-color: #e3eaf8;
+    padding: clamp(10px, 2vw, 12px);
+    background-color: rgba(22, 45, 59, 0.1);
     margin-bottom: 10px;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     font-weight: bold;
+    color: #162d3b;
 }
 
 .faq-item:hover {
-    background-color: #d0dbf2;
+    background-color: rgba(22, 45, 59, 0.2);
     transform: translateX(5px);
 }
 
-/* Chat Section */
 .chat-section {
     width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
     overflow: auto;
 }
 
-/* Messages Container */
 .messages-container {
     width: 100%;
     max-height: 75vh;
@@ -68,32 +89,31 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
+    padding: clamp(8px, 2vw, 10px);
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(22, 45, 59, 0.1);
 }
 
-/* Chat Bubbles */
 .message {
-    padding: 14px;
+    padding: clamp(10px, 2vw, 14px);
     border-radius: 20px;
-    max-width: 60%;
-    word-wrap: break-word;
-    font-size: 1rem;
+    max-width: 80%;
+    overflow-wrap: break-word;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     display: inline-block;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px rgba(22, 45, 59, 0.1);
     transition: all 0.3s ease;
 }
 
 .bot-message {
-    background-color: #007bff;
-    color: white;
+    background-color: #162d3b;
+    color: #eeefe7;
     align-self: flex-start;
 }
 
 .user-message {
-    background-color: #28a745;
-    color: white;
+    background-color: #eeefe7;
+    color: #162d3b;
     align-self: flex-end;
 }

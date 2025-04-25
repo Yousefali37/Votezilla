@@ -73,6 +73,53 @@ body {
     background-color: #ffffff;
 }
 
+/* Error styling */
+.error {
+    border-color: #ff4444 !important;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Radio group styling */
+.radio-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.radio-group label.selected {
+    background-color: #f0f0f0;
+    font-weight: 500;
+}
+
+.datepicker {
+    width: 100%;
+}
+
+.datepicker .MuiInputBase-root {
+    width: 100%;
+}
+
+.form-submit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
 .form-submit-btn {
     align-self: flex-end;
     border-radius: 0.75rem;

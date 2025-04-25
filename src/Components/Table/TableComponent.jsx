@@ -20,6 +20,7 @@ function TableComponent({ endpoint, title, headers, dataFields, searchField }) {
         setLoading(true);
         axios.get(endpoint)
             .then((res) => {
+                console.log(res);
                 setData(res.data);
                 setLoading(false);
             })
@@ -27,26 +28,35 @@ function TableComponent({ endpoint, title, headers, dataFields, searchField }) {
                 console.error("Error fetching data:", error);
                 setLoading(false);
             });
-
     }, [endpoint]);
 
     const getIdField = () => {
         switch (title) {
             case 'candidate':
-                return 'CANDIDATE_ID';
+                return 'candidate_id';
             case 'session':
-                return 'SESSION_ID';
+                return 'session_id';
             case 'user':
-                return 'id';
+                return 'user_id';
             case 'decision':
-                return 'DECISION_ID';
+                return 'election_decision_id';
             default:
                 return 'id';
         }
     };
 
+    const getNestedFieldValue = (obj, fieldPath) => {
+        const fields = fieldPath.split('.');
+        let value = obj;
+        for (const field of fields) {
+            value = value ? value[field] : null;
+            if (!value) break;
+        }
+        return value || 'N/A';
+    };
+
     const filteredData = data.filter(item => {
-        const searchValue = searchField ? item[searchField] : (item.name || item.election_Name || item.description || '');
+        const searchValue = searchField ? getNestedFieldValue(item, searchField) : (item.name || item.election_Name || item.description || '');
         const idValue = item[getIdField()];
         return (
             (searchValue && searchValue.toString().toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -62,7 +72,7 @@ function TableComponent({ endpoint, title, headers, dataFields, searchField }) {
             console.error(`Error deleting ${title}:`, error);
             alert(`Failed to delete ${title}.`);
         }
-    }
+    };
 
     if (loading) {
         return <Loading />;
@@ -87,15 +97,11 @@ function TableComponent({ endpoint, title, headers, dataFields, searchField }) {
                 <table className="modern-table">
                     <thead>
                         <tr>
-                            {
-                                headers.map((header, index) => {
-                                    return (
-                                        <th key={index}>
-                                            {header}
-                                        </th>
-                                    )
-                                })
-                            }
+                            {headers.map((header, index) => (
+                                <th key={index}>
+                                    {header}
+                                </th>
+                            ))}
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -105,7 +111,11 @@ function TableComponent({ endpoint, title, headers, dataFields, searchField }) {
                                 <tr key={item[getIdField()]}>
                                     {dataFields.map((field, index) => (
                                         <td key={index}>
-                                            <p>{item[field] || 'N/A'}</p>
+                                            <p
+                                                className={`status-badge ${getNestedFieldValue(item, field) === "active" ? "active" : ""} ${getNestedFieldValue(item, field) === "completed" ? "completed" : ""} ${getNestedFieldValue(item, field) === "upcoming" ? "upcoming" : ""}`}
+                                            >
+                                                {getNestedFieldValue(item, field)}
+                                            </p>
                                         </td>
                                     ))}
                                     <td>
@@ -143,6 +153,14 @@ function TableComponent({ endpoint, title, headers, dataFields, searchField }) {
 TableComponent.propTypes = {
     endpoint: PropTypes.string,
     title: PropTypes.string.isRequired,
+    headers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    dataFields: PropTypes.arrayOf(PropTypes.string).isRequired,
+    searchField: PropTypes.string
+};
+
+TableComponent.defaultProps = {
+    endpoint: '',
+    searchField: ''
 };
 
 export default TableComponent;

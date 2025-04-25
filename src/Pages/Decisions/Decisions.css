@@ -1,0 +1,203 @@
+.decision-card {
+    min-height: 40vh;
+    background: #eeefe7;
+    padding: clamp(15px, 3vw, 25px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(22, 45, 59, 0.1);
+    max-width: clamp(600px, 90%, 900px);
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.decision-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 20px rgba(22, 45, 59, 0.2);
+}
+
+p {
+    line-height: 1.6;
+    color: #162d3b;
+}
+
+.section-title {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
+    background: rgba(22, 45, 59, 0.1);
+    border-radius: 5px;
+    color: #162d3b;
+}
+
+.icon-color {
+    color: #162d3b;
+}
+
+ul li::marker {
+    color: #162d3b;
+}
+
+.vote-btn {
+    max-width: clamp(150px, 40vw, 180px);
+    width: 100%;
+    padding: clamp(10px, 2vw, 12px) clamp(15px, 3vw, 20px);
+    border-radius: 8px;
+    font-size: clamp(14px, 2.5vw, 16px);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.for-btn {
+    background: transparent;
+    color: #162d3b;
+    border: 2px solid #162d3b;
+}
+
+.for-btn:hover {
+    background: #162d3b;
+    color: #eeefe7;
+    transform: scale(1.07);
+    box-shadow: 0 5px 15px rgba(22, 45, 59, 0.5);
+}
+
+.for-btn:active {
+    transform: scale(0.93);
+    box-shadow: 0 2px 5px rgba(22, 45, 59, 0.5);
+}
+
+.against-btn {
+    background: transparent;
+    color: #162d3b;
+    border: 2px solid #162d3b;
+}
+
+.against-btn:hover {
+    background: #162d3b;
+    color: #eeefe7;
+    transform: scale(1.07);
+    box-shadow: 0 5px 15px rgba(22, 45, 59, 0.5);
+}
+
+.against-btn:active {
+    transform: scale(0.93);
+    box-shadow: 0 2px 5px rgba(22, 45, 59, 0.5);
+}
+
+.other-btn {
+    background: transparent;
+    color: #162d3b;
+    border: 2px solid #162d3b;
+}
+
+.other-btn:hover {
+    background: #eeefe7;
+    color: #162d3b;
+    transform: scale(1.07);
+    box-shadow: 0 5px 15px rgba(238, 239, 231, 0.5);
+}
+
+.other-btn:active {
+    transform: scale(0.93);
+    box-shadow: 0 2px 5px rgba(238, 239, 231, 0.5);
+}
+
+.abstain-form-container {
+    position: relative;
+}
+
+.abstain-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-btn {
+    max-width: clamp(150px, 40vw, 200px);
+    align-self: center;
+    margin-top: clamp(10px, 2vw, 15px);
+    background: #162d3b;
+    color: #eeefe7;
+    border: none;
+    padding: clamp(8px, 2vw, 10px);
+    border-radius: 8px;
+    font-size: clamp(14px, 2.5vw, 16px);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(22, 45, 59, 0.5);
+}
+
+.btn-close {
+    position: absolute;
+    color: #162d3b;
+}
+
+.btn-close:hover {
+    color: #11202f;
+}
+
+.btn-close:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(22, 45, 59, 0.5);
+    color: #11202f;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+@media (max-width: 576px) {
+    .decision-card {
+        padding: clamp(10px, 2vw, 15px);
+        max-width: 95%;
+    }
+    .vote-btn {
+        max-width: 100%;
+        padding: clamp(8px, 2vw, 10px);
+        font-size: clamp(12px, 2vw, 14px);
+    }
+    .submit-btn {
+        max-width: 150px;
+        font-size: clamp(12px, 2vw, 14px);
+    }
+    .section-title {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        padding: clamp(4px, 1vw, 6px) clamp(6px, 1.5vw, 8px);
+    }
+}
+
+@media (max-width: 768px) {
+    .decision-card {
+        padding: clamp(12px, 2.5vw, 15px);
+        text-align: center;
+    }
+    .vote-btn {
+        max-width: 100%;
+        padding: clamp(10px, 2.5vw, 14px);
+        font-size: clamp(13px, 2.5vw, 14px);
+    }
+    .section-title {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 976px) {
+    .decision-card {
+        max-width: 90%;
+    }
+    .vote-btn {
+        max-width: clamp(160px, 45vw, 180px);
+    }
+    .submit-btn {
+        max-width: clamp(160px, 45vw, 180px);
+    }
+}

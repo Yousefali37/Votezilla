@@ -3,12 +3,17 @@ import { faClipboardList } from "@fortawesome/free-solid-svg-icons";
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons/faUserGroup';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 function Home() {
+    const cookie = new Cookies
+
+    const user = cookie.get('user', '/');
+
     return (
-        <div className="container vh-100 d-flex flex-column justify-content-center align-items-center mt-0 gap-5 fade-in">
+        <div className="container d-flex flex-column justify-content-center align-items-center mt-0 gap-5 fade-in">
             <div className="mb-4 text-center mt-5 pt-5">
-                <h1 className='home-head'>Welcome, Board Member</h1>
+                <h1 className='home-head'>Welcome, {user.name}</h1>
                 <p className='text-muted'>Please select your voting preference below</p>
             </div>
             <div className="w-100 row justify-content-around align-items-center gap-lg-1 gap-sm-3">

@@ -1,55 +1,99 @@
 .user-roles-page {
-    padding: 1.5rem;
-    background-color: #f8fafc;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    background-color: #eeefe7;
     border-radius: 0.75rem;
     width: 100%;
-    max-width: 500px;
+    max-width: clamp(350px, 90%, 500px);
 }
 
 .user-roles-page__title {
-    font-size: 1.75rem;
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
     font-weight: bold;
-    color: #0f172a;
-    margin-bottom: 0.5rem;
+    color: #162d3b;
+    margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
 }
 
 .user-roles-page__subtitle {
-    font-size: 1rem;
-    color: #475569;
-    margin-bottom: 1.5rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    color: #162d3b;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
 
-/* List of role cards */
 .user-roles-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2vw, 1rem);
 }
 
-/* Individual role card */
 .user-role-card {
     background-color: #ffffff;
-    padding: 1rem;
-    border: 1px solid #e2e8f0;
+    padding: clamp(0.8rem, 2vw, 1rem);
+    border: 1px solid #162d3b;
     border-radius: 0.75rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 6px rgba(22, 45, 59, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .user-role-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(20, 184, 166, 0.15);
+    box-shadow: 0 6px 14px rgba(22, 45, 59, 0.15);
 }
 
 .user-role-card__title {
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
     font-weight: 600;
-    color: #0f172a;
-    margin-bottom: 0.5rem;
+    color: #162d3b;
+    margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
 }
 
 .user-role-card__description {
-    font-size: 1rem;
-    color: #475569;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    color: #162d3b;
     line-height: 1.5;
+}
+
+@media (max-width: 576px) {
+    .user-roles-page {
+        padding: clamp(0.8rem, 2vw, 1rem);
+        max-width: 95%;
+    }
+    .user-roles-page__title {
+        font-size: clamp(1.3rem, 3.5vw, 1.5rem);
+    }
+    .user-roles-page__subtitle {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+    }
+    .user-role-card {
+        padding: clamp(0.6rem, 1.5vw, 0.8rem);
+    }
+    .user-role-card__title {
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
+    }
+    .user-role-card__description {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .user-roles-page {
+        max-width: 90%;
+    }
+    .user-roles-page__title {
+        font-size: clamp(1.4rem, 3.8vw, 1.6rem);
+    }
+    .user-role-card {
+        padding: clamp(0.7rem, 1.8vw, 0.9rem);
+    }
+}
+
+@media (max-width: 976px) {
+    .user-roles-page {
+        max-width: clamp(400px, 85%, 480px);
+    }
+    .user-roles-page__title {
+        font-size: clamp(1.5rem, 4vw, 1.7rem);
+    }
+    .user-role-card__title {
+        font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+    }
 }

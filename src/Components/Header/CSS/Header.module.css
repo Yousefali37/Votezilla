@@ -1,11 +1,11 @@
 .navbar {
-    padding: 1rem 0rem;
-    position: fixed;
+    padding: clamp(0.5rem, 2vw, 1rem) 0;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    background-color: white;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    background-color: #eeefe7;
+    box-shadow: 0 0.5rem 1rem rgba(22, 45, 59, 0.1);
     z-index: 1000;
 }
 
@@ -14,21 +14,22 @@
     align-items: center;
     justify-content: start;
     font-weight: bold;
-    margin-left: 0.5rem;
+    margin-left: clamp(0.3rem, 1vw, 0.5rem);
     color: #162d3b;
     cursor: pointer;
+    font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
 .nav-link {
     color: #162d3b;
     font-weight: 500;
-    padding: 8px 12px;
+    padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-link:hover {
     background-color: #162d3b;
-    color: white;
+    color: #eeefe7;
     border-radius: 5px;
 }
 
@@ -36,10 +37,10 @@
     transform: rotateY(180deg);
     display: inline-block;
     transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     color: #162d3b;
     background-color: transparent;
-    padding: 10px;
+    padding: clamp(8px, 2vw, 10px);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -48,14 +49,58 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    border: 1px solid #dcded7;
+    width: clamp(40px, 10vw, 50px);
+    height: clamp(40px, 10vw, 50px);
+    border: 1px solid #162d3b;
     border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(22, 45, 59, 0.1);
     transition: box-shadow 0.3s ease;
 }
 
 .mirrored-icon-container:hover {
     box-shadow: 0 6px 10px rgba(22, 45, 59, 0.25);
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    .navbar-brand {
+        font-size: 1rem;
+        margin-left: 0.3rem;
+    }
+    .nav-link {
+        padding: 5px 8px;
+        font-size: 0.9rem;
+    }
+    .mirrored-icon-container {
+        width: 35px;
+        height: 35px;
+    }
+    .mirrored-icon {
+        font-size: 1.1rem;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+    .nav-link {
+        padding: 6px 10px;
+    }
+    .mirrored-icon-container {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 976px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    .nav-link {
+        font-size: 0.95rem;
+    }
 }

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-function DecisionCard({ id, title, desc, duration }) {
+function DecisionCard({ id, title, desc, duration, status }) {
     {/* set navigation */ }
     const navigate = useNavigate();
 
@@ -11,10 +11,28 @@ function DecisionCard({ id, title, desc, duration }) {
         <div className="position-card fade-in">
             {/* navigate to decision session when card is clicked */}
             <div className="card text-center" onClick={() => {
-                navigate('/decision-session')
+                navigate(`/decision-session/${id}`)
             }}>
 
                 <div className="card-body">
+
+                    {/* Status */}
+                    {
+                        status && <p className={`card-status status-badge ${status === "active" ? "active" : status === "closed" ? "completed" : "upcoming" }`}>{status}</p>
+                    }
+
+                    {/* Status */}
+                    <p className="card-status">
+                        {status === "active" ? (
+                            <span className='card-status__active'>
+                                Active
+                            </span>
+                        ) : (
+                            <span className='card-status__inactive'>
+                                Inactive
+                            </span>
+                        )}
+                    </p>
 
                     {/* Title */}
                     <h5 className="card-title">
@@ -38,7 +56,7 @@ function DecisionCard({ id, title, desc, duration }) {
                 {/* Buttons */}
                 <div className='d-flex flex-wrap justify-content-center align-items-center gap-4'>
                     <button className='verify-btn' onClick={() => {
-                        navigate('/position-session');
+                        navigate(`/position-session/${id}`);
                     }}>
                         Vote Now
                     </button>

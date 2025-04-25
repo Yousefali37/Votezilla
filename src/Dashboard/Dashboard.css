@@ -1,63 +1,64 @@
 .dashboard-container {
-    padding: 2rem;
+    padding: clamp(1.5rem, 4vw, 2rem);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .dash-head {
-    font-size: 36px;
+    font-size: clamp(28px, 8vw, 36px);
     font-weight: 700;
-    line-height: 40px;
+    line-height: clamp(32px, 9vw, 40px);
+    color: #162d3b;
 }
 
 .dashboard-card {
-    max-width: 630px;
-    min-height: 150px;
-    background: #fff;
-    padding: 24px;
+    max-width: clamp(400px, 90%, 630px);
+    min-height: clamp(120px, 30vw, 150px);
+    background: #eeefe7;
+    padding: clamp(18px, 5vw, 24px);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(22, 45, 59, 0.1);
+    transition: transform 0.5s ease-in-out, border 0.3s ease-in-out;
     cursor: pointer;
 }
 
 .dashboard-card:hover {
     transform: scale(1.01);
-    border: 1px solid #0d9488;
+    border: 1px solid #162d3b;
 }
 
 .dashboard-card:active {
     transform: scale(0.99);
-    border: 1px solid #0d9488;
+    border: 1px solid #162d3b;
 }
 
 .icon-title {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: clamp(8px, 2vw, 10px);
 }
 
 .icon-title .icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: #f1f1f1;
+    width: clamp(35px, 10vw, 40px);
+    height: clamp(35px, 10vw, 40px);
+    background-color: rgba(22, 45, 59, 0.1);
     border-radius: 50px;
-    font-size: 1.2rem;
-    color: #14b8a6;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #162d3b;
 }
 
 .icon-title .edit-icon {
     position: absolute;
     top: 2px;
     right: 1px;
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 3.5vw, 1.5rem);
     cursor: pointer;
-    color: #0d9488;
+    color: #162d3b;
     animation: pulse 1s infinite;
 }
 
@@ -69,15 +70,67 @@
 
 .progress-container {
     width: 100%;
-    height: 10px;
-    background-color: #e0e0e0;
+    height: clamp(8px, 2vw, 10px);
+    background-color: rgba(22, 45, 59, 0.2);
     border-radius: 5px;
     overflow: hidden;
-    margin-top: 30px;
+    margin-top: clamp(20px, 5vw, 30px);
 }
 
 .progress-bar-custom {
     height: 100%;
-    background: linear-gradient(90deg, #14b8a6, #0d9488);
+    background: #162d3b;
     transition: width 0.5s ease-in-out;
+}
+
+@media (max-width: 576px) {
+    .dashboard-container {
+        padding: clamp(1rem, 3vw, 1.5rem);
+    }
+    .dash-head {
+        font-size: clamp(24px, 7vw, 30px);
+        line-height: clamp(28px, 8vw, 34px);
+    }
+    .dashboard-card {
+        max-width: 95%;
+        min-height: clamp(100px, 25vw, 120px);
+        padding: clamp(12px, 4vw, 18px);
+    }
+    .icon-title .icon-container {
+        width: clamp(30px, 8vw, 35px);
+        height: clamp(30px, 8vw, 35px);
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+    }
+    .icon-title .edit-icon {
+        font-size: clamp(1.1rem, 3vw, 1.3rem);
+    }
+    .progress-container {
+        height: clamp(6px, 1.5vw, 8px);
+        margin-top: clamp(15px, 4vw, 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: clamp(1.2rem, 3.5vw, 1.8rem);
+    }
+    .dash-head {
+        font-size: clamp(26px, 7.5vw, 32px);
+    }
+    .dashboard-card {
+        max-width: 90%;
+    }
+    .icon-title .icon-container {
+        width: clamp(32px, 9vw, 38px);
+        height: clamp(32px, 9vw, 38px);
+    }
+}
+
+@media (max-width: 976px) {
+    .dashboard-card {
+        max-width: clamp(350px, 85%, 600px);
+    }
+    .dash-head {
+        font-size: clamp(28px, 7.5vw, 34px);
+    }
 }

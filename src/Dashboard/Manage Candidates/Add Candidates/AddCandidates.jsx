@@ -4,34 +4,26 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../../Components/Loading/Loading";
 
 function AddCandidates() {
-
     const navigate = useNavigate();
 
-    const [userData, setUserData] = useState({
+    const [candidateData, setCandidateData] = useState({
         name: "",
-        position: "",
-        sessionId: "",
-        Manger_ID: ""
-    })
-    const [sessions, setSessions] = useState([]);
-    const [managers, setManagers] = useState([]);
-
+        bio: "",
+        election_id: ""
+    });
+    const [elections, setElections] = useState([]);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
-        Promise.all([
-            axios.get(`http://127.0.0.1:8000/api/voting-sessions`),
-            axios.get(`http://127.0.0.1:8000/api/managers`),
-        ])
-            .then(([sessionsRes, managersRes]) => {
-                setManagers(managersRes.data);
-                setSessions(sessionsRes.data);
+        axios.get(`http://127.0.0.1:8000/api/elections`)
+            .then((res) => {
+                setElections(res.data);
             })
             .catch(error => {
-                setError("Failed to load data: " + error.message);
+                setError("Failed to load elections: " + error.message);
             })
             .finally(() => {
                 setIsLoading(false);
@@ -41,7 +33,7 @@ function AddCandidates() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!userData.name || !userData.position || !userData.sessionId || !userData.Manger_ID ) {
+        if (!candidateData.name || !candidateData.bio || !candidateData.election_id) {
             setError("Please fill out all the fields");
             return;
         }
@@ -51,28 +43,26 @@ function AddCandidates() {
         setSuccess("");
 
         try {
-            let response = await axios.post('http://127.0.0.1:8000/api/candidates', {
-                CANDIDATE_ID: 3,
-                NAME: userData.name,
-                POSITION: userData.position,
-                SESSION_ID: parseInt(userData.sessionId),
-                MANAGER_ID: parseInt(userData.Manger_ID)
-            })
-            if (response.status === 200) {
-                setSuccess("Candidate add successfully");
+            const response = await axios.post('http://127.0.0.1:8000/api/candidates', {
+                name: candidateData.name,
+                bio: candidateData.bio,
+                election_id: parseInt(candidateData.election_id)
+            });
+            if (response.status === 201) {
+                setSuccess("Candidate created successfully");
                 setTimeout(() => {
-                    navigate('/manage-candidates/view-candidate');
+                    navigate('/manage-candidates/view-candidates');
                 }, 1500);
             } else {
-                setError("Faild to add the candidate, try again");
+                setError("Failed to add the candidate, try again");
             }
         } catch (err) {
             console.error(err);
-            setError("Error Occured, please try again");
+            setError("Error occurred: " + (err.response?.data?.message || err.message));
         } finally {
             setIsLoading(false);
         }
-    }
+    };
 
     if (isLoading) {
         return <Loading />;
@@ -80,7 +70,6 @@ function AddCandidates() {
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
-
             {error && (
                 <p className="form-text fw-bold text-danger mb-3 fade-in">
                     {error}
@@ -98,71 +87,54 @@ function AddCandidates() {
                     type="text"
                     id="name"
                     name="name"
-                    placeholder="Enter Candidate name"
-                    value={userData.name}
+                    placeholder="Enter candidate name"
+                    value={candidateData.name}
                     onChange={(e) => {
-                        setUserData({ ...userData, name: e.target.value })
+                        setCandidateData({ ...candidateData, name: e.target.value });
                     }}
                     required
                 />
             </div>
 
             <div className="form-group">
-                <label htmlFor="position">Position Title</label>
-                <input
-                    type="text"
-                    id="position"
-                    name="position"
-                    placeholder="Enter Position title"
-                    value={userData.position}
+                <label htmlFor="bio">Bio</label>
+                <textarea
+                    id="bio"
+                    name="bio"
+                    placeholder="Enter candidate bio"
+                    value={candidateData.bio}
                     onChange={(e) => {
-                        setUserData({ ...userData, position: e.target.value })
+                        setCandidateData({ ...candidateData, bio: e.target.value });
                     }}
                     required
                 />
             </div>
 
             <div className="form-group">
-                <label htmlFor="session_id">Session ID</label>
+                <label htmlFor="election_id">Election</label>
                 <select
-                    name="session_id"
-                    id="session_id"
-                    value={userData.sessionId}
-                    onChange={(e) => setUserData({ ...userData, sessionId: e.target.value })}
+                    name="election_id"
+                    id="election_id"
+                    value={candidateData.election_id}
+                    onChange={(e) => setCandidateData({ ...candidateData, election_id: e.target.value })}
                     required
                 >
-                    <option value="" disabled>Select session ID</option>
-                    {sessions.map(session => (
-                        <option key={session.SESSION_ID} value={session.SESSION_ID}>
-                            #{session.SESSION_ID} - {session.ELECTION_NAME}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="manger_id">Manager ID</label>
-                <select
-                    name="manger_id"
-                    id="manger_id"
-                    value={userData.Manger_ID}
-                    onChange={(e) => setUserData({ ...userData, Manger_ID: e.target.value })}
-                    required
-                >
-                    <option value="" disabled>Select manager ID</option>
-                    {managers.map(manager => (
-                        <option key={manager.MANAGER_ID} value={manager.MANAGER_ID}>
-                            #{manager.MANAGER_ID} - {manager.FULL_NAME}
-                        </option>
-                    ))}
+                    <option value="" disabled>Select an election</option>
+                    {elections
+                        .filter(election => election.type === 'position')
+                        .map(election => (
+                            <option key={election.election_id} value={election.election_id}>
+                                #{election.election_id} - {election.name}
+                            </option>
+                        ))}
                 </select>
             </div>
 
             <button type="submit" className="form-submit-btn">
-                {isLoading ? <Loading /> : "Create Voting Session"}
+                {isLoading ? <Loading /> : "Create Candidate"}
             </button>
         </form>
-    )
+    );
 }
 
 export default AddCandidates;

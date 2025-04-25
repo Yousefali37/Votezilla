@@ -14,7 +14,6 @@ import AboutUs from './Pages/About-us/AboutUs';
 import Verifyfingerprint from './Components/Verify-Fingerprint/Verifyfingerprint';
 import ManageDecisions from './Dashboard/Manage Decisions/ManageDecisions';
 import ManageCandidates from './Dashboard/Manage Candidates/ManageCandidates';
-import ManageSessions from './Dashboard/Manage Sessions/ManageSessions';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import UserManagement from './Dashboard/UserManagement/UserManagement';
@@ -24,14 +23,21 @@ import EditCandidates from './Dashboard/Manage Candidates/Edit Candidates/EditCa
 import AddDecision from './Dashboard/Manage Decisions/Add Decision/AddDecision';
 import ViewDecision from './Dashboard/Manage Decisions/View Decision/ViewDecision';
 import EditDecision from './Dashboard/Manage Decisions/Edit Decision/EditDecision';
-import AddSession from './Dashboard/Manage Sessions/Add Session/AddSession';
-import ViewSession from './Dashboard/Manage Sessions/View Session/ViewSession';
-import EditSession from './Dashboard/Manage Sessions/Edit Session/EditSession';
 import AddUser from './Dashboard/UserManagement/Add User/AddUser';
 import ViewUser from './Dashboard/UserManagement/View User/ViewUser';
-import EditUser from './Dashboard/UserManagement/Edit User/EditUser';
+import EditUser from './Dashboard/UserManagement/Edit User/EditUser';;
+import ManageElection from './Dashboard/Manage Elections/ManageElections';
+import AddElection from './Dashboard/Manage Elections/Add Election/AddElection';
+import ViewElections from './Dashboard/Manage Elections/View Session/ViewElections';
+import EditElection from './Dashboard/Manage Elections/Edit Session/EditElection';
+import Cookies from 'universal-cookie';
+import GoBackBtn from './Components/Go Back btn/GoBackBtn';
 
 function App() {
+
+  const cookie = new Cookies();
+  const user = cookie.get('user');
+
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -55,43 +61,59 @@ function App() {
 
           {/* About Us Page Route */}
           <Route path="/about-us" element={<AboutUs />} />
-          
+
           {/* Sessions Pages */}
           <Route path="/position-sessions" element={<PositionSession />} />
           <Route path="/decision-sessions" element={<DecisionSession />} />
-          <Route path="/decision-session" element={<Decisions />} />
-          <Route path="/position-session" element={<Positions />} />
+          <Route path="/decision-session/:id" element={<Decisions />} />
+          <Route path="/position-session/:id" element={<Positions />} />
 
-          {/* Dashoard */}
-          <Route path="/dashboard" element={<Dashboard />} />
 
-          {/* Manage Decisions */}
-          <Route path="/manage-decisions" element={<ManageDecisions />}>
-            <Route path='add-decision' element={<AddDecision />} />
-            <Route path='view-decision' element={<ViewDecision />} />
-            <Route path='edit-decision/:id' element={<EditDecision />} />
-          </Route>
+          {
+            user.role === "manager" ? (
+              <>
+                {/* Dashoard */}
+                <Route path="/dashboard" element={<Dashboard />} />
 
-          {/* Manage Candidates */}
-          <Route path="/manage-candidates" element={<ManageCandidates />} >
-            <Route path='add-candidate' element={<AddCandidates />} />
-            <Route path='view-candidate' element={<ViewCandidates />} />
-            <Route path='edit-candidate/:id' element={<EditCandidates />} />
-          </Route>
+                {/* Manage Decisions */}
+                <Route path="/manage-decisions" element={<ManageDecisions />}>
+                  <Route path='add-decision' element={<AddDecision />} />
+                  <Route path='view-decisions' element={<ViewDecision />} />
+                  <Route path='edit-decision/:id' element={<EditDecision />} />
+                </Route>
 
-          {/* Manage Session */}
-          <Route path="/manage-sessions" element={<ManageSessions />}>
-            <Route path='add-session' element={<AddSession />} />
-            <Route path='view-session' element={<ViewSession />} />
-            <Route path='edit-session/:id' element={<EditSession />} />
-          </Route>
+                {/* Manage Candidates */}
+                <Route path="/manage-candidates" element={<ManageCandidates />} >
+                  <Route path='add-candidate' element={<AddCandidates />} />
+                  <Route path='view-candidates' element={<ViewCandidates />} />
+                  <Route path='edit-candidate/:id' element={<EditCandidates />} />
+                </Route>
 
-          {/* User Managment */}
-          <Route path="manage-users" element={<UserManagement />}>
-            <Route path='add-user' element={<AddUser />} />
-            <Route path='view-user' element={<ViewUser />} />
-            <Route path='edit-user/:id' element={<EditUser />} />
-          </Route>
+                {/* Manage Elections */}
+                <Route path="/manage-elections" element={<ManageElection />}>
+                  <Route path='add-election' element={<AddElection />} />
+                  <Route path='view-elections' element={<ViewElections />} />
+                  <Route path='edit-election/:id' element={<EditElection />} />
+                </Route>
+
+                {/* User Managment */}
+                <Route path="manage-users" element={<UserManagement />}>
+                  <Route path='add-user' element={<AddUser />} />
+                  <Route path='view-users' element={<ViewUser />} />
+                  <Route path='edit-user/:id' element={<EditUser />} />
+                </Route>
+              </>
+            ) : (
+              <>
+                <Route path="*" element={<>
+                  <GoBackBtn />
+                  <div className='min-vh-100 d-flex justify-content-center align-items-center'>
+                    <h1>Page Doesn't Exist</h1>
+                  </div>
+                </>}></Route>
+              </>
+            )
+          }
 
           {/* FAQ Page Route */}
           <Route path="/faqs" element={<FAQs />} />

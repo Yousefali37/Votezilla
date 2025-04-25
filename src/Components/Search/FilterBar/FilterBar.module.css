@@ -1,47 +1,69 @@
-/* Filter Icon */
 .filterIcon {
-    font-size: 1rem;
-    color: #0d9488;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    color: #162d3b;
 }
 
-/* Compact Select Dropdown */
 .form-select-sm {
-    min-width: 130px;
-    padding: 0.4rem;
-    font-size: 0.9rem;
+    min-width: clamp(100px, 30vw, 130px);
+    padding: clamp(0.3rem, 1vw, 0.4rem);
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #162d3b;
 }
 
 .form-select-sm:focus {
-    border-color: #0d9488;
+    border-color: #162d3b;
     outline: none;
+    box-shadow: 0 0 5px rgba(22, 45, 59, 0.3);
 }
 
 .input-group-sm .input-group-text {
-    background-color: #0d9488;
-    color: white;
+    background-color: #162d3b;
+    color: #eeefe7;
     border: none;
     border-radius: 6px 0 0 6px;
-    padding: 0.4rem;
+    padding: clamp(0.3rem, 1vw, 0.4rem);
 }
 
 .input-group-sm .form-control {
     border-radius: 0 6px 6px 0;
-    padding: 0.4rem;
+    padding: clamp(0.3rem, 1vw, 0.4rem);
+    border: 1px solid #162d3b;
+}
+
+@media (max-width: 576px) {
+    .filterIcon {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+    }
+    .form-select-sm {
+        min-width: clamp(90px, 25vw, 100px);
+        padding: clamp(0.2rem, 0.8vw, 0.3rem);
+        font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+    }
+    .input-group-sm .input-group-text {
+        padding: clamp(0.2rem, 0.8vw, 0.3rem);
+    }
+    .input-group-sm .form-control {
+        padding: clamp(0.2rem, 0.8vw, 0.3rem);
+    }
 }
 
 @media (max-width: 768px) {
     .form-select-sm {
-        min-width: 110px;
-        padding: 0.3rem;
+        min-width: clamp(100px, 28vw, 110px);
+        padding: clamp(0.25rem, 0.9vw, 0.3rem);
     }
-
     .input-group-sm .input-group-text {
-        padding: 0.3rem;
+        padding: clamp(0.25rem, 0.9vw, 0.3rem);
     }
-
     .input-group-sm .form-control {
-        padding: 0.3rem;
+        padding: clamp(0.25rem, 0.9vw, 0.3rem);
+    }
+}
+
+@media (max-width: 976px) {
+    .form-select-sm {
+        min-width: clamp(110px, 30vw, 120px);
+        font-size: clamp(0.85rem, 2vw, 0.9rem);
     }
 }

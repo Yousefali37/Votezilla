@@ -3,19 +3,19 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 10px;
+    padding: clamp(8px, 2vw, 10px);
 }
 
 .card {
-    max-width: 400px;
-    min-height: 160px;
-    background: rgba(255, 255, 255, 0.25);
+    max-width: clamp(250px, 90%, 400px);
+    min-height: clamp(120px, 30vw, 160px);
+    background: rgba(238, 239, 231, 0.25);
     backdrop-filter: blur(12px);
-    padding: 24px;
+    padding: clamp(1rem, 3vw, 1.5rem);
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(22, 45, 59, 0.15);
     transition: all 0.3s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(238, 239, 231, 0.3);
     overflow: hidden;
 }
 
@@ -23,50 +23,90 @@
     box-shadow: 0 12px 24px rgba(22, 45, 59, 0.25);
 }
 
-/* Card Body Styling */
 .card-body {
     text-align: center;
-    padding: 15px;
+    padding: clamp(10px, 2vw, 15px);
 }
 
 .card-title {
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
     font-weight: 700;
     color: #162d3b;
 }
 
 .card-title span {
     font-weight: 400;
-    color: #64748b;
+    color: #eeefe7;
+}
+
+.card-status {
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    right: -50px;
+    width: 150px;
+    height: 28px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #162d3b 0%, #1a3a4d 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-status__active {
+    color: #4ade80;
+    text-shadow: 0 0 4px rgba(74, 222, 128, 0.3);
+}
+
+.card-status__inactive {
+    color: #f87171;
+    text-shadow: 0 0 4px rgba(248, 113, 113, 0.3);
+}
+
+.card-status::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 .card-text {
-    font-size: 1rem;
-    color: #374151;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    color: #162d3b;
     margin-bottom: 10px;
 }
 
-/* Session Details */
 .session-details1 {
     display: flex;
     align-self: flex-end;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    border: 1px solid #0d9488;
-    width: 30px;
-    height: 30px;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    border: 1px solid #162d3b;
+    width: clamp(25px, 6vw, 30px);
+    height: clamp(25px, 6vw, 30px);
     border-radius: 100px;
-    color: #0d9488;
+    color: #162d3b;
     margin-bottom: 10px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 5px 15px rgba(20, 184, 165, 0.2);
+    box-shadow: 0 5px 15px rgba(22, 45, 59, 0.2);
 }
 
 .session-details1:hover {
-    background: #0d9488;
-    color: #fff;
+    background: #162d3b;
+    color: #eeefe7;
     transform: scale(1.14);
 }
 
@@ -76,36 +116,74 @@
 
 .session-details {
     background: transparent;
-    color: #0d9488;
-    border: 1px solid #0d9488;
+    color: #162d3b;
+    border: 1px solid #162d3b;
 }
 
 .session-details:hover {
-    background: #0d9488;
-    color: #fff;
+    background: #162d3b;
+    color: #eeefe7;
 }
 
-/* Footer Styling */
 .card-footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
     color: #162d3b;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: clamp(8px, 2vw, 10px);
+    background: rgba(238, 239, 231, 0.1);
+    border-top: 1px solid rgba(238, 239, 231, 0.2);
     border-radius: 0 0 16px 16px;
     transition: background 0.3s ease-in-out;
 }
 
-/* Icon Styling */
 .clock-icon {
     margin-right: 8px;
-    color: #0d9488;
+    color: #162d3b;
 }
 
-/* Hover Effect for Footer */
 .card:hover .card-footer {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(238, 239, 231, 0.3);
+}
+
+@media (max-width: 576px) {
+    .card {
+        padding: 1rem;
+        min-height: 120px;
+    }
+
+    .card-body {
+        padding: 0.75rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 85%;
+    }
+
+    .session-details1 {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 976px) {
+    .card {
+        max-width: 90%;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
 }

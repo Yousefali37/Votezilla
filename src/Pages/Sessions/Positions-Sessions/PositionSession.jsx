@@ -1,54 +1,62 @@
 import './PositionSession.css'
 import HeroSection from './../../../Components/Hero Section/HeroSection';
-import data from './Positions Data/PositionData.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PositionCard from './../../../Components/Cards/Session-cards/Position-Card/PositionCard';
 import FilterBar from './../../../Components/Search/FilterBar/FilterBar';
+import axios from 'axios';
+import Loading from './../../../Components/Loading/Loading';
 
 function PositionSession() {
 
-    const [filterValues, SetFilterValues] = useState({
-        position: '',
-        status: '',
-    })
+    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    // const [filterValues, SetFilterValues] = useState([]);
 
-    const [searchQuery, SetSearchQuery] = useState("");
+    useEffect(() => {
+        setIsLoading(true);
+        try {
+            axios.get("http://127.0.0.1:8000/api/election-positions")
+                .then((res) => setData(res.data))
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setIsLoading(false);
+        }
+    }, [])
 
-    const FilterData = data.filter((data) => {
-        const filterPosition = filterValues.position ? data.position.toLowerCase() === filterValues.position.toLowerCase() : true;
-        const filterStatus = filterValues.status ? data.status.toLowerCase() === filterValues.status.toLowerCase() : true;
-        const filterSearch = data.position.toLowerCase().includes(searchQuery.toLowerCase());
-        return filterPosition && filterStatus && filterSearch;
-    })
+    console.log(data);
 
-    const handleFilterChange = (filterType, value) => {
-        SetFilterValues((prevfilters) => ({
-            ...prevfilters,
-            [filterType]: value,
-        }));
-    };
-
-    const handleSearch = (query) => {
-        SetSearchQuery(query);
+    if (isLoading) {
+        return (
+            <Loading />
+        )
     }
 
-    
     return (
         <>
             <HeroSection title={"Position Sessions"} text={"Vote On the Position You Want"} page={'position'} />
-            <FilterBar onFilterChange={handleFilterChange} onSearchChange={handleSearch} page={"position"} />
+            <FilterBar page={"position"} />
             <div className="d-flex flex-column justify-content-center align-items-center container-sm gap-5 pt-2 mb-4">
-                <div className="container row justify-content-center align-items-center">
-                    {
-                        FilterData.map((data) => {
-                            return (
-                                <div className="col-lg-5 col-sm-12" key={data.id}>
-                                    <PositionCard id={data.id} position={data.position} desc={data.desc} duration={data.duration} />
-                                </div>
-                            )
-                        })
-                    }
-                </div>
+                {
+                    data.length ? (
+                        <div className="container row justify-content-center align-items-center">
+                            {
+                                data.map((data) => {
+                                    return (
+                                        <div className="col-lg-5 col-sm-12" key={data.SESSION_ID}>
+                                            <PositionCard desc={data.description} duration={data.duration} id={data.election_id} position={data.position} status={data.election.status} />
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    ) : (
+                        <div className='d-flex flex-column justify-content-center align-items-center mt-5'>
+                            <h1 className='text-center'>No Position Sessions Available</h1>
+                            <p className='text-center'>Please check back later</p>
+                        </div>
+                    )
+                }
             </div>
         </>
     )
